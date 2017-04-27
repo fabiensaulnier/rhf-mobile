@@ -1,4 +1,7 @@
+
 #  RhfApp
+Roller Hockey France - Mobile
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
@@ -59,4 +62,3 @@ Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
 ```
 
 The `.env` file is ignored by git keeping those secrets out of your repo.
-

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>533770704272-1ca9k88nshvcfpiplh17t9p50s60gl1j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.533770704272-1ca9k88nshvcfpiplh17t9p50s60gl1j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC9b0cBgskRKVnGoadSXaKdFn_NdHTToWE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>533770704272</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rhf.ios</string>
+	<key>PROJECT_ID</key>
+	<string>rhf-mobile-fe57c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rhf-mobile-fe57c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:533770704272:ios:1607f91bef99c99b</string>
+	<key>DATABASE_URL</key>
+	<string>https://rhf-mobile-fe57c.firebaseio.com</string>
+</dict>
+</plist>

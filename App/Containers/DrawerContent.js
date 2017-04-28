@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { ScrollView, Image, BackAndroid } from 'react-native'
+import { ScrollView, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/DrawerContentStyles'
-import { Images } from '../Themes'
+import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { Images, Colors, Metrics } from '../Themes'
 
 class DrawerContent extends Component {
   componentDidMount () {
@@ -21,7 +23,15 @@ class DrawerContent extends Component {
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Image source={Images.logo} style={styles.logo} />
+
+        <TouchableOpacity onPress={NavigationActions.pop}>
+          <Icon name='plus'
+            size={Metrics.icons.large}
+            color={Colors.snow}
+            style={styles.backButton}
+          />
+        </TouchableOpacity>
+
       </ScrollView>
     )
   }

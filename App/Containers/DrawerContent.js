@@ -17,7 +17,7 @@ class DrawerContent extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.props.openLiveAdd} style={styles.button}>
-          <Text style={styles.text}>Créer un Live</Text>
+          <Text style={styles.text}>Faire un live</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.props.openLive} style={styles.button}>

@@ -13,20 +13,27 @@
 import { call, put } from 'redux-saga/effects'
 import LiveActions from '../Redux/LiveRedux'
 import database from '../Services/Firebase'
+import LiveConfig from '../Config/LiveConfig'
 
 export function * createLive (action) {
   const { data } = action
 
-  database.ref('lives').push().set({
-    team_home: '',
-    team_away: '',
-    level: '',
-    status: '',
-    date: '',
-    hours: '',
-    user: '',
-    events: []
-  })
+  try {
+    const ref = database.ref('lives').push();
+    const items = yield call([ref, ref.set], {
+      teamHome: data.teamHome,
+      teamAway: data.teamAway,
+      level: data.level,
+      status: LiveConfig.status.INIT,
+      date: data.date,
+      user: '',
+      events: []
+    });
+    yield put(LiveActions.createLiveSuccess(item));
+
+  } catch (error) {
+    yield put(LiveActions.createLiveFailure());
+  }
 }
 
 export function * getLives (action) {

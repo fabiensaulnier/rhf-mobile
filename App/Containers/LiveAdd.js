@@ -1,7 +1,8 @@
 import React from 'react'
-import { ScrollView, View, DatePickerIOS} from 'react-native'
-import { Text, TextInput, Title, Caption, Button, Icon, Divider } from '@shoutem/ui';
+import { ScrollView, View, DatePickerIOS, TextInput} from 'react-native'
+import { Text, Title, Caption, Button, Icon, Divider } from '@shoutem/ui';
 import { connect } from 'react-redux'
+import LiveActions from '../Redux/LiveRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -16,8 +17,11 @@ class AddLive extends React.Component {
       date: new Date(),
       timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
     }
-  }
 
+    this.onDateChange = this.onDateChange.bind(this);
+    this.onTimezoneChange = this.onTimezoneChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
 
   onDateChange = (date) => {
     this.setState({date: date});
@@ -31,6 +35,21 @@ class AddLive extends React.Component {
     this.setState({timeZoneOffsetInHours: offset});
   };
 
+  onClick = (event) => {
+    console.tron.log(this.state);
+    this.props.createLiveRequest({
+      teamHome: this.state.teamHome,
+      teamAway: this.state.teamAway,
+      //level: this.state.level,
+      date: this.state.date
+    });
+  }
+
+  focusNextField = (nextField) => {
+    console.tron.log(this.refs[nextField])
+    this.refs[nextField].focus();
+  };
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -38,22 +57,29 @@ class AddLive extends React.Component {
         <Title>Faire un live</Title>
         <Caption>Prévenez la communauté que vous allez faire le live d'une rencontre !</Caption>
         <View style={{flex: 1, flexDirection: 'row'}}>
-
           <TextInput
+            ref="1"
+            autoFocus={true}
+            returnKeyType="next"
             style={{height: 50, width: '50%'}}
             placeholder={'Domicile'}
             onChangeText={(teamHome) => this.setState({teamHome})}
             value={this.state.teamHome}
+            onSubmitEditing={() => this.focusNextField('2')}
           />
           <TextInput
+            ref="2"
+            returnKeyType="next"
             style={{height: 50, width: '50%'}}
             placeholder={'Extérieur'}
             onChangeText={(teamAway) => this.setState({teamAway})}
             value={this.state.teamAway}
+            onSubmitEditing={() => this.focusNextField('3')}
           />
         </View>
         <Divider styleName="line" />
         <DatePickerIOS
+          ref="3"
           date={this.state.date}
           minimumDate={this.state.date}
           mode="datetime"
@@ -61,8 +87,9 @@ class AddLive extends React.Component {
           onDateChange={this.onDateChange}
           minuteInterval={30}
         />
-        <Button styleName="dark">
-          <Text>AJOUTER</Text>
+        <Button styleName="dark"
+           onPress={this.onClick}>
+          <Text>VALIDER</Text>
         </Button>
       </ScrollView>
     )
@@ -71,11 +98,15 @@ class AddLive extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    createLivesSuccess: state.live.payload
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    createLiveRequest: (action) => dispatch(LiveActions.createLiveRequest(action)),
+    createLivesSuccess: (action) => dispatch(LiveActions.createLivesSuccess(action)),
+    createLiveFailure: (action) => dispatch(LiveActions.createLiveFailure(action))
   }
 }
 

@@ -22,6 +22,7 @@ class NavigationRouter extends Component {
             <Scene initial key='launchScreen' component={LaunchScreen} title='RHF' />
             <Scene key='liveAdd' component={LiveAdd} title='Ajouter un live' />
             <Scene key='liveList' component={LiveList} title='Lives' />
+            <Scene key='live' component={Live} title='Live' />
           </Scene>
         </Scene>
       </Router>

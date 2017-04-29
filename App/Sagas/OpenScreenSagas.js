@@ -8,8 +8,4 @@ export function * openScreen (action) {
   // You can override the RESET type in the options passed to the OPEN_SCREEN dispatch
   const mergedOptions = {type: ActionConst.RESET, ...options}
   yield call(NavigationActions[screen], mergedOptions)
-  yield call([NavigationActions, NavigationActions.refresh], {
-    key: 'drawer',
-    open: false
-  });
 }

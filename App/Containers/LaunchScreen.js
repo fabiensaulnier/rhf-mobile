@@ -34,10 +34,11 @@ class LaunchScreen extends React.Component {
   }
 
   render () {
-    console.tron.log(this.props.lives)
+    console.tron.log(this.props)
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>
+          {this.props.error && <Text style={{marginBottom: 20, color: 'red'}}>Il y à une erreur</Text> }
           <ListView
             data={_.values(this.props.lives)}
             renderRow={this.renderRow}
@@ -50,7 +51,8 @@ class LaunchScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    lives: state.live.lives,
+    error: state.live.error,
+    lives: state.live.lives
   }
 }
 

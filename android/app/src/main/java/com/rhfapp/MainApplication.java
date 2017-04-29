@@ -30,13 +30,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNFirebasePackage(),
             new RNDeviceInfo(),
             new ReactNativeConfigPackage(),
             new PhotoViewPackage(),
             new RNSharePackage(),
             new LinearGradientPackage(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new RNFirebasePackage()
       );
     }
   };

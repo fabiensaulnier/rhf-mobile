@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "533770704272",
+    "firebase_url": "https://rhf-mobile-fe57c.firebaseio.com",
+    "project_id": "rhf-mobile-fe57c",
+    "storage_bucket": "rhf-mobile-fe57c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533770704272:android:f6fa6c674316b1a5",
+        "android_client_info": {
+          "package_name": "com.rhf.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533770704272-m5qb2vtnfb017gjhfmdl8uq88cgp24n5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMmFMJih4qb7yWNg6h1J3eCyzNBbViTEs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533770704272:android:4c31a544294c6925",
+        "android_client_info": {
+          "package_name": "com.rhfapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533770704272-2nfrvaoovnnnc569judsnmimaloj7uda.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rhfapp",
+            "certificate_hash": "ca8bb92f5f9512ebbec84a7a0d0e5d8aaf75d0f4"
+          }
+        },
+        {
+          "client_id": "533770704272-m5qb2vtnfb017gjhfmdl8uq88cgp24n5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMmFMJih4qb7yWNg6h1J3eCyzNBbViTEs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533770704272-m5qb2vtnfb017gjhfmdl8uq88cgp24n5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533770704272-1ca9k88nshvcfpiplh17t9p50s60gl1j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rhf.ios"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

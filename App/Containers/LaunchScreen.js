@@ -25,8 +25,7 @@ class LaunchScreen extends React.Component {
     return (
       <View>
         <Tile>
-          <Title styleName="md-gutter-bottom">{live.team_home}</Title>
-          <Subtitle styleName="sm-gutter-horizontal">{live.team_away}</Subtitle>
+          <Title styleName="md-gutter-bottom">{live.teamHome} - {live.teamAway}</Title>
         </Tile>
         <Divider styleName="line" />
       </View>

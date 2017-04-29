@@ -12,6 +12,7 @@
 
 import { call, put } from 'redux-saga/effects'
 import LiveActions from '../Redux/LiveRedux'
+import OpenScreenActions from '../Redux/OpenScreenRedux'
 import database from '../Services/Firebase'
 import LiveConfig from '../Config/LiveConfig'
 
@@ -20,7 +21,7 @@ export function * createLive (action) {
 
   try {
     const ref = database.ref('lives').push();
-    const items = yield call([ref, ref.set], {
+    const item = yield call([ref, ref.set], {
       teamHome: data.teamHome,
       teamAway: data.teamAway,
       level: data.level,
@@ -30,6 +31,7 @@ export function * createLive (action) {
       events: []
     });
     yield put(LiveActions.createLiveSuccess(item));
+    yield put(OpenScreenActions.openScreen("launchScreen"));
 
   } catch (error) {
     yield put(LiveActions.createLiveFailure());

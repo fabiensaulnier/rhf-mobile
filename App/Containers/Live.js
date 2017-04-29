@@ -5,19 +5,22 @@ import { connect } from 'react-redux'
 // import YourActions from '../Redux/YourRedux'
 
 // Styles
-import styles from './Styles/LiveOneStyle'
+import styles from './Styles/LiveStyle'
 
-class LiveOne extends React.Component {
+class Live extends React.Component {
 
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {}
-  // }
+   constructor (props) {
+     super(props)
+ this.state = {
+  teamHome: 'Test',
+  teamAway: 'Présentation Live'
+              }
+ }
 
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Text>LiveOne Container</Text>
+        <Text>LiveOne Container {this.state.teamAway}</Text>
       </ScrollView>
     )
   }
@@ -33,4 +36,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LiveOne)
+export default connect(mapStateToProps, mapDispatchToProps)(Live)

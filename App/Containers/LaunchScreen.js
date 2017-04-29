@@ -12,12 +12,6 @@ export default class LaunchScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>
-          <TouchableOpacity onPress={NavigationActions.addLive}>
-            <Icon name='plus'
-              size={Metrics.icons.large}
-              color={Colors.background}
-            />
-          </TouchableOpacity>
         </View>
       </View>
     )

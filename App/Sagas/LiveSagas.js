@@ -32,9 +32,12 @@ export function * createLive (action) {
 export function * getLives (action) {
   const { data } = action
 
-  database.ref('lives').once('value').then(items => {
-    console.tron.log(items);
-  })
-
-  console.tron.log('ouii')
+  try {
+    const ref = database.ref('lives');
+    const items = yield call([ref, ref.once], 'value');
+    yield put(LiveActions.getLivesSuccess(items.val()));
+  }
+  catch (error) {
+    yield put(LiveActions.getLivesFailure());
+  }
 }

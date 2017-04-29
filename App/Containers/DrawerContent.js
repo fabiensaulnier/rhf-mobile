@@ -36,7 +36,7 @@ DrawerContent.contextTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   openLiveAdd: () => dispatch(OpenScreenActions.openScreen("liveAdd")),
-  openLiveList: () => dispatch(OpenScreenActions.openScreen("liveList"))
+  openLiveList: () => dispatch(OpenScreenActions.openScreen("liveList")),
   openLive: () => dispatch(OpenScreenActions.openScreen("live"))
 })
 

@@ -1,9 +1,15 @@
 export default {
   container: {
     flex: 1,
-    padding: 20
+    paddingTop: 100,
+    paddingLeft: 20
   },
-  logo: {
-    alignSelf: 'center'
+  button: {
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  text: {
+    color: '#fff',
+    fontSize: 20
   }
 }

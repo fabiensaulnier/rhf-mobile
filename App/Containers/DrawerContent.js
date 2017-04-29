@@ -24,12 +24,16 @@ class DrawerContent extends Component {
     return (
       <ScrollView style={styles.container}>
 
-        <TouchableOpacity onPress={NavigationActions.pop}>
-          <Icon name='plus'
-            size={Metrics.icons.large}
-            color={Colors.snow}
-            style={styles.backButton}
-          />
+        <TouchableOpacity onPress={NavigationActions.liveList} style={styles.button}>
+          <Text style={styles.text}>Lives</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={NavigationActions.addLive} style={styles.button}>
+          <Text style={styles.text}>Créer un Live</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={NavigationActions.pop} style={styles.button}>
+          <Text style={styles.text}>Paramètres</Text>
         </TouchableOpacity>
 
       </ScrollView>

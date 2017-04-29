@@ -1,34 +1,22 @@
 import React, { Component } from 'react'
 import { ScrollView, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/DrawerContentStyles'
+import OpenScreenActions from '../Redux/OpenScreenRedux'
+import { connect } from 'react-redux'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Images, Colors, Metrics } from '../Themes'
 
 class DrawerContent extends Component {
-  componentDidMount () {
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-      if (this.context.drawer.props.open) {
-        this.toggleDrawer()
-        return true
-      }
-      return false
-    })
-  }
-
-  toggleDrawer () {
-    this.context.drawer.toggle()
-  }
-
   render () {
     return (
       <ScrollView style={styles.container}>
 
-        <TouchableOpacity onPress={NavigationActions.liveList} style={styles.button}>
+        <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
           <Text style={styles.text}>Lives</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={NavigationActions.liveAdd} style={styles.button}>
+        <TouchableOpacity onPress={this.props.openLiveAdd} style={styles.button}>
           <Text style={styles.text}>Créer un Live</Text>
         </TouchableOpacity>
 
@@ -45,4 +33,9 @@ DrawerContent.contextTypes = {
   drawer: React.PropTypes.object
 }
 
-export default DrawerContent
+const mapDispatchToProps = (dispatch) => ({
+  openLiveAdd: () => dispatch(OpenScreenActions.openScreen("liveAdd")),
+  openLiveList: () => dispatch(OpenScreenActions.openScreen("liveList"))
+})
+
+export default connect(null, mapDispatchToProps)(DrawerContent)

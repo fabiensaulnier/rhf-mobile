@@ -7,6 +7,7 @@ import NavigationDrawer from './NavigationDrawer'
 import LaunchScreen from '../Containers/LaunchScreen'
 import LiveAdd from '../Containers/LiveAdd'
 import LiveList from '../Containers/LiveList'
+import Live from '../Containers/Live'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux

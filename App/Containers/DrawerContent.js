@@ -20,9 +20,10 @@ class DrawerContent extends Component {
           <Text style={styles.text}>Créer un Live</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={NavigationActions.pop} style={styles.button}>
-          <Text style={styles.text}>Paramètres</Text>
+        <TouchableOpacity onPress={this.props.openLiveAdd} style={styles.button}>
+          <Text style={styles.text}>Live</Text>
         </TouchableOpacity>
+
 
       </ScrollView>
     )
@@ -36,6 +37,7 @@ DrawerContent.contextTypes = {
 const mapDispatchToProps = (dispatch) => ({
   openLiveAdd: () => dispatch(OpenScreenActions.openScreen("liveAdd")),
   openLiveList: () => dispatch(OpenScreenActions.openScreen("liveList"))
+  openLive: () => dispatch(OpenScreenActions.openScreen("live"))
 })
 
 export default connect(null, mapDispatchToProps)(DrawerContent)

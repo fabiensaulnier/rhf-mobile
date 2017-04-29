@@ -19,8 +19,8 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene initial key='launchScreen' component={LaunchScreen} title='RHF' />
-            <Scene key='liveAdd' component={LiveAdd} title='Ajouter un live' />
+            <Scene initial key='launchScreen' component={LaunchScreen} title='Roller Hockey France' />
+            <Scene key='liveAdd' component={LiveAdd} title='Faire un live' />
             <Scene key='liveList' component={LiveList} title='Lives' />
             <Scene key='live' component={Live} title='Live' />
           </Scene>

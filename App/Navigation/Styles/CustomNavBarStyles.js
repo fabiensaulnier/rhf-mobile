@@ -32,10 +32,13 @@ export default {
     flex: 1,
     justifyContent: 'flex-end',
     flexDirection: 'row'
+
   },
   leftButtons: {
     flex: 1,
     justifyContent: 'flex-start',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingTop: Metrics.navBarButtonMargin,
+    paddingLeft: Metrics.baseMargin
   }
 }

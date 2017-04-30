@@ -17,7 +17,7 @@ export default {
     return (
       <TouchableOpacity onPress={NavigationActions.pop}>
         <Icon name='angle-left'
-          size={Metrics.icons.large}
+          size={Metrics.icons.medium}
           color={Colors.snow}
           style={styles.backButton}
         />

@@ -33,7 +33,6 @@ class LaunchScreen extends React.Component {
   }
 
   render () {
-    console.tron.log(this.props)
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>

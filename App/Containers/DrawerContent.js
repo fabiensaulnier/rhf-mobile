@@ -28,8 +28,6 @@ class DrawerContent extends Component {
           <Text style={styles.text}>Login</Text>
         </TouchableOpacity>
 
-
-
       </ScrollView>
     )
   }

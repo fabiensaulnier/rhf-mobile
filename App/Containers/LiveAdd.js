@@ -2,6 +2,8 @@ import React from 'react'
 import { ScrollView, View, DatePickerIOS} from 'react-native'
 import { Text, TextInput, Title, Caption, Button, Icon, Divider } from '@shoutem/ui';
 import { connect } from 'react-redux'
+
+
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -53,6 +55,7 @@ class AddLive extends React.Component {
           />
         </View>
         <Divider styleName="line" />
+
         <DatePickerIOS
           date={this.state.date}
           minimumDate={this.state.date}
@@ -78,5 +81,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
   }
 }
+
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddLive)

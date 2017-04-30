@@ -10,7 +10,7 @@ class CustomNavBar extends React.Component {
   renderMiddle () {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
     return (
-      <Image resizeMode='cover' style={styles.logo} source={Images.clearLogo} />
+      <Image resizeMode='contain' style={styles.logo} source={Images.clearLogo} />
     )
   }
 

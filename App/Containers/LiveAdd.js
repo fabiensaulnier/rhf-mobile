@@ -59,7 +59,6 @@ class AddLive extends React.Component {
         <View style={{flex: 1, flexDirection: 'row'}}>
           <TextInput
             ref="1"
-            autoFocus={true}
             returnKeyType="next"
             style={{height: 50, width: '50%'}}
             placeholder={'Domicile'}

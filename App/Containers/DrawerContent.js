@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
+import { ScrollView, View, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/DrawerContentStyles'
 import OpenScreenActions from '../Redux/OpenScreenRedux'
 import { connect } from 'react-redux'
@@ -13,19 +13,49 @@ class DrawerContent extends Component {
       <ScrollView style={styles.container}>
 
         <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
-          <Text style={styles.text}>Lives</Text>
+          <View style={styles.item}>
+            <Icon name='podcast'
+              size={Metrics.icons.medium}
+              color={Colors.snow}
+              style={styles.idemIcon}
+            />
+            <Text style={styles.text}>Lives</Text>
+          </View>
         </TouchableOpacity>
 
+
+        <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
+          <View style={styles.item}>
+            <Icon name='calendar'
+              size={Metrics.icons.medium}
+              color={Colors.snow}
+              style={styles.idemIcon}
+            />
+            <Text style={styles.text}>Matchs</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
+          <View style={styles.item}>
+            <Icon name='feed'
+              size={Metrics.icons.medium}
+              color={Colors.snow}
+              style={styles.idemIcon}
+            />
+            <Text style={styles.text}>Actualités</Text>
+          </View>
+        </TouchableOpacity>
+
+
+        <Text style={styles.text}>DEV</Text>
         <TouchableOpacity onPress={this.props.openLiveAdd} style={styles.button}>
           <Text style={styles.text}>Faire un live</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.props.openLive} style={styles.button}>
-          <Text style={styles.text}>Live-Suppr</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity onPress={this.props.openLogin} style={styles.button}>
           <Text style={styles.text}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.props.openLive} style={styles.button}>
+          <Text style={styles.text}>openLive</Text>
         </TouchableOpacity>
 
       </ScrollView>

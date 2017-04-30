@@ -11,5 +11,12 @@ export default {
   text: {
     color: '#fff',
     fontSize: 20
+  },
+  item: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  idemIcon: {
+    paddingRight: 10
   }
 }

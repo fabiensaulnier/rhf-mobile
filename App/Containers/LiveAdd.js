@@ -46,7 +46,6 @@ class AddLive extends React.Component {
   }
 
   focusNextField = (nextField) => {
-    console.tron.log(this.refs[nextField])
     this.refs[nextField].focus();
   };
 
@@ -54,8 +53,8 @@ class AddLive extends React.Component {
     return (
       <ScrollView style={styles.container}>
 
-        <Title>Faire un live</Title>
-        <Caption>Prévenez la communauté que vous allez faire le live d'une rencontre !</Caption>
+        <Title>Annoncez-vous !</Title>
+        <Caption>Envie de partager en live un match ? Prévenez la communauté quelle rencontre prévoyez-vous de couvrir.</Caption>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <TextInput
             ref="1"

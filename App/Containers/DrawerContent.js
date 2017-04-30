@@ -24,6 +24,9 @@ class DrawerContent extends Component {
           <Text style={styles.text}>Live-Suppr</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity onPress={this.props.openLogin} style={styles.button}>
+          <Text style={styles.text}>Login</Text>
+        </TouchableOpacity>
 
       </ScrollView>
     )
@@ -37,7 +40,9 @@ DrawerContent.contextTypes = {
 const mapDispatchToProps = (dispatch) => ({
   openLiveAdd: () => dispatch(OpenScreenActions.openScreen("liveAdd")),
   openLiveList: () => dispatch(OpenScreenActions.openScreen("liveList")),
-  openLive: () => dispatch(OpenScreenActions.openScreen("live"))
+  openLive: () => dispatch(OpenScreenActions.openScreen("live")),
+  openLogin: () => dispatch(OpenScreenActions.openScreen("login"))
+
 })
 
 

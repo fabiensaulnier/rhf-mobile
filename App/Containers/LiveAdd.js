@@ -78,6 +78,7 @@ class AddLive extends React.Component {
           />
         </View>
         <Divider styleName="line" />
+
         <DatePickerIOS
           ref="3"
           date={this.state.date}
@@ -109,5 +110,8 @@ const mapDispatchToProps = (dispatch) => {
     createLiveFailure: (action) => dispatch(LiveActions.createLiveFailure(action))
   }
 }
+
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddLive)

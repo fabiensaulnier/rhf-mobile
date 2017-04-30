@@ -9,6 +9,7 @@ import LaunchScreen from '../Containers/LaunchScreen'
 import LiveAdd from '../Containers/LiveAdd'
 import LiveList from '../Containers/LiveList'
 import Live from '../Containers/Live'
+import Login from '../Containers/Login'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -24,6 +25,7 @@ class NavigationRouter extends Component {
             <Scene key='liveAdd' component={LiveAdd} title='Faire un live' />
             <Scene key='liveList' component={LiveList} title='Lives' />
             <Scene key='live' component={Live} title='Live' />
+            <Scene key='login' component={Login} title='Login' />
           </Scene>
         </Scene>
       </Router>

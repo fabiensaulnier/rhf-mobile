@@ -12,21 +12,30 @@
 
 import { call, put } from 'redux-saga/effects'
 import LiveActions from '../Redux/LiveRedux'
+import OpenScreenActions from '../Redux/OpenScreenRedux'
 import database from '../Services/Firebase'
+import LiveConfig from '../Config/LiveConfig'
 
 export function * createLive (action) {
   const { data } = action
 
-  database.ref('lives').push().set({
-    team_home: '',
-    team_away: '',
-    level: '',
-    status: '',
-    date: '',
-    hours: '',
-    user: '',
-    events: []
-  })
+  try {
+    const ref = database.ref('lives').push();
+    const item = yield call([ref, ref.set], {
+      teamHome: data.teamHome,
+      teamAway: data.teamAway,
+      level: data.level,
+      status: LiveConfig.status.INIT,
+      date: data.date,
+      user: '',
+      events: []
+    });
+    yield put(LiveActions.createLiveSuccess(item));
+    yield put(OpenScreenActions.openScreen("launchScreen"));
+
+  } catch (error) {
+    yield put(LiveActions.createLiveFailure());
+  }
 }
 
 export function * getLives (action) {

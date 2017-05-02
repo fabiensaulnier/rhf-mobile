@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
-import styles from './Styles/DrawerContentStyles'
+import styles from './Styles/DrawerContentStyle'
 import OpenScreenActions from '../Redux/OpenScreenRedux'
 import { connect } from 'react-redux'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'

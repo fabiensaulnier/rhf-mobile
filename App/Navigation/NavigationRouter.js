@@ -6,6 +6,7 @@ import CustomNavBar from './CustomNavBar'
 
 // screens identified by the router
 import LaunchScreen from '../Containers/LaunchScreen'
+import Home from '../Containers/Home'
 import LiveAdd from '../Containers/LiveAdd'
 import LiveList from '../Containers/LiveList'
 import Live from '../Containers/Live'
@@ -21,11 +22,12 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navBar={CustomNavBar}>
-            <Scene initial key='launchScreen' component={LaunchScreen} title='Roller Hockey France' />
+            <Scene key='launchScreen' initial component={LaunchScreen} hideNavBar />
+            <Scene key='home' component={Home} title='Roller Hockey France' />
             <Scene key='liveAdd' component={LiveAdd} title='Faire un live' />
             <Scene key='liveList' component={LiveList} title='Lives' />
             <Scene key='live' component={Live} title='Live' />
-            <Scene key='login' component={Login} title='Login' />
+            <Scene key='login' component={Login} title='Login' hideNavBar />
           </Scene>
         </Scene>
       </Router>

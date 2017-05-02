@@ -9,7 +9,7 @@ import { Screen, ListView, Tile, Title, Subtitle, Divider } from '@shoutem/ui';
 import _ from 'lodash'
 
 // Styles
-import styles from './Styles/LaunchScreenStyles'
+import styles from './Styles/LaunchScreenStyle'
 
 class LaunchScreen extends React.Component {
   constructor (props) {

@@ -1,10 +1,14 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../Themes/'
+import { Metrics, Colors, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
+  ...ApplicationStyles.screen,
   container: {
     flex: 1,
     marginTop: Metrics.navBarHeight,
-    backgroundColor: Colors.background
+    padding: 10
+  },
+  centered: {
+    alignItems: 'center'
   }
 })

@@ -11,42 +11,22 @@
 *************************************************************/
 
 import { call, put } from 'redux-saga/effects'
-import LiveActions from '../Redux/LiveRedux'
+import LoginActions from '../Redux/LoginRedux'
 import OpenScreenActions from '../Redux/OpenScreenRedux'
 import firebase from '../Services/Firebase'
-import LiveConfig from '../Config/LiveConfig'
 
-export function * createLive (action) {
+export function * signUp (action) {
   const { data } = action
 
+  console.log(data)
+
   try {
-    const ref = firebase.database().ref('lives').push();
-    const item = yield call([ref, ref.set], {
-      teamHome: data.teamHome,
-      teamAway: data.teamAway,
-      level: data.level,
-      status: LiveConfig.status.INIT,
-      date: data.date,
-      user: '',
-      events: []
-    });
-    yield put(LiveActions.createLiveSuccess(item));
+    const auth = firebase.auth();
+    const user = yield call([auth, auth.createUserWithEmailAndPassword], data.email, data.password);
+    yield put(LoginActions.signUpSuccess(user));
     yield put(OpenScreenActions.openScreen("launchScreen"));
 
   } catch (error) {
-    yield put(LiveActions.createLiveFailure());
-  }
-}
-
-export function * getLives (action) {
-  const { data } = action
-
-  try {
-    const ref = firebase.database().ref('lives');
-    const items = yield call([ref, ref.once], 'value');
-    yield put(LiveActions.getLivesSuccess(items.val()));
-  }
-  catch (error) {
-    yield put(LiveActions.getLivesFailure());
+    yield put(LoginActions.signUpFailure());
   }
 }

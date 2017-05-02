@@ -6,7 +6,8 @@ export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
     startup: require('./StartupRedux').reducer,
-    live: require('./LiveRedux').reducer
+    live: require('./LiveRedux').reducer,
+    login: require('./LoginRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga)

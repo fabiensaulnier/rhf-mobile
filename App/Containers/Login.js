@@ -1,39 +1,49 @@
 import React from 'react'
 import { ScrollView,View, Text } from 'react-native'
 import { connect } from 'react-redux'
-import {TextInput, Title, Caption, Button, Icon, Divider } from '@shoutem/ui'
-// import Button from 'react-native-button';
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import { TextInput, Title, Caption, Button, Icon, Divider } from '@shoutem/ui'
+import LoginActions from '../Redux/LoginRedux'
 
 // Styles
 import styles from './Styles/LoginStyle'
 
 class Login extends React.Component {
 
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {}
-  // }
+  constructor (props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  onButtonPress = () => {
+    this.props.signUp({
+      email: this.state.email,
+      password: this.state.password
+    })
+  }
 
   render () {
     return (
       <ScrollView style={styles.container}>
-        <View style={{flex: 2, flexDirection: 'column'}}>
-
-        <TextInput
-            style={{height: 50, width: '50%'}}
-            placeholder={'Email'}
+        <View style={styles.content}>
+          <TextInput
+            style={styles.field}
+            placeholder="Email"
+            onChangeText={(email) => this.setState({email})}
+            value={this.state.email}
           />
-        <TextInput
+          <TextInput
             secureTextEntry={true}
-            style={{height: 50, width: '50%'}}
-            placeholder={'Mot de passe'}
+            style={styles.field}
+            placeholder="Mot de passe"
+            onChangeText={(password) => this.setState({password})}
+            value={this.state.password}
           />
-          <Button>
-  <Text>Se Connecter</Text>
-</Button>
-
+          <Button onPress={this.onButtonPress}>
+            <Text>Se Connecter</Text>
+          </Button>
         </View>
       </ScrollView>
     )
@@ -47,8 +57,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    signUp: (data) => dispatch(LoginActions.signUpRequest(data))
   }
 }
-const onButtonPress = () => { Alert.alert('Button has been pressed!');};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

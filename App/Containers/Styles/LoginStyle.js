@@ -6,5 +6,13 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: Metrics.navBarHeight,
     backgroundColor: Colors.background
+  },
+  content: {
+    flex: 2,
+    flexDirection: 'column'
+  },
+  field: {
+    height: 50,
+    width: '50%'
   }
 })

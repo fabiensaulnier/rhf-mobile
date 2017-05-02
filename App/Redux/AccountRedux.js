@@ -6,10 +6,13 @@ import Immutable from 'seamless-immutable'
 const { Types, Creators } = createActions({
   signUpRequest: ['data'],
   signUpSuccess: ['payload'],
-  signUpFailure: null
+  signUpFailure: null,
+  signInRequest: ['data'],
+  signInSuccess: ['payload'],
+  signInFailure: null
 })
 
-export const LoginTypes = Types
+export const AccountTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
@@ -23,6 +26,7 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Reducers ------------- */
 
+// SIGN UP
 // request the data from an api
 export const signUpRequest = (state, { data }) =>
   state.merge({ fetching: true, data, payload: null })
@@ -37,10 +41,27 @@ export const signUpSuccess = (state, action) => {
 export const signUpFailure = state =>
   state.merge({ fetching: false, error: true, payload: null })
 
+// SIGN IN
+export const signInRequest = (state, { data }) =>
+  state.merge({ fetching: true, data, payload: null })
+
+// successful api lookup
+export const signInSuccess = (state, action) => {
+  const { payload } = action
+  return state.merge({ fetching: false, error: null, payload })
+}
+
+// Something went wrong somewhere.
+export const signInFailure = state =>
+  state.merge({ fetching: false, error: true, payload: null })
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SIGN_UP_REQUEST]: signUpRequest,
   [Types.SIGN_UP_SUCCESS]: signUpSuccess,
-  [Types.SIGN_UP_FAILURE]: signUpFailure
+  [Types.SIGN_UP_FAILURE]: signUpFailure,
+  [Types.SIGN_IN_REQUEST]: signInRequest,
+  [Types.SIGN_IN_SUCCESS]: signInSuccess,
+  [Types.SIGN_IN_FAILURE]: signInFailure
 })

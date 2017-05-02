@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView,View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { TextInput, Title, Caption, Button, Icon, Divider } from '@shoutem/ui'
-import LoginActions from '../Redux/LoginRedux'
+import AccountActions from '../Redux/AccountRedux'
 
 // Styles
 import styles from './Styles/LoginStyle'
@@ -57,7 +57,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: (data) => dispatch(LoginActions.signUpRequest(data))
+    signUp: (data) => dispatch(AccountActions.signUpRequest(data))
   }
 }
 

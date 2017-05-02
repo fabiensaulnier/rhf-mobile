@@ -11,22 +11,34 @@
 *************************************************************/
 
 import { call, put } from 'redux-saga/effects'
-import LoginActions from '../Redux/LoginRedux'
+import AccountActions from '../Redux/AccountRedux'
 import OpenScreenActions from '../Redux/OpenScreenRedux'
 import firebase from '../Services/Firebase'
 
 export function * signUp (action) {
   const { data } = action
 
-  console.log(data)
-
   try {
     const auth = firebase.auth();
     const user = yield call([auth, auth.createUserWithEmailAndPassword], data.email, data.password);
-    yield put(LoginActions.signUpSuccess(user));
+    yield put(AccountActions.signUpSuccess(user));
     yield put(OpenScreenActions.openScreen("launchScreen"));
 
   } catch (error) {
-    yield put(LoginActions.signUpFailure());
+    yield put(AccountActions.signUpFailure());
+  }
+}
+
+export function * signIn (action) {
+  const { data } = action
+
+  try {
+    const auth = firebase.auth();
+    const user = yield call([auth, auth.signInWithEmailAndPassword], data.email, data.password);
+    yield put(AccountActions.signInSuccess(user));
+    yield put(OpenScreenActions.openScreen("launchScreen"));
+
+  } catch (error) {
+    yield put(AccountActions.signInFailure());
   }
 }

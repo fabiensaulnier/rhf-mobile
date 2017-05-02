@@ -1,51 +1,56 @@
 import React from 'react'
-import { ScrollView,View, Text } from 'react-native'
+import { ScrollView,View, Text, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { TextInput, Title, Caption, Button, Icon, Divider } from '@shoutem/ui'
 import AccountActions from '../Redux/AccountRedux'
+import { Field, reduxForm } from 'redux-form'
+import { Metrics, Images } from '../Themes'
 
 // Styles
 import styles from './Styles/LoginStyle'
 
+const renderInput = ({ ...restField, meta: { touched, error, warning }, input: { onChange, restInput }}) => {
+
+  return (
+    <View>
+      <TextInput style={styles.field} onChangeText={onChange} {...restInput} {...restField} />
+    </View>
+  )
+}
+
+const validate = values => {
+  const errors = {}
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address'
+  }
+  if (!values.password) {
+    errors.password = 'Required'
+  }
+  return errors
+}
+
 class Login extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
-  }
-
-  onButtonPress = () => {
-    this.props.signUp({
-      email: this.state.email,
-      password: this.state.password
-    })
+  submit = (values) => {
+    this.props.signUp(values)
   }
 
   render () {
+    const { handleSubmit, invalid, submitting } = this.props
+
     return (
-      <ScrollView style={styles.container}>
-        <View style={styles.content}>
-          <TextInput
-            style={styles.field}
-            placeholder="Email"
-            onChangeText={(email) => this.setState({email})}
-            value={this.state.email}
-          />
-          <TextInput
-            secureTextEntry={true}
-            style={styles.field}
-            placeholder="Mot de passe"
-            onChangeText={(password) => this.setState({password})}
-            value={this.state.password}
-          />
-          <Button onPress={this.onButtonPress}>
-            <Text>Se Connecter</Text>
+      <View style={styles.container}>
+        <Image resizeMode='contain' style={styles.logo} source={Images.clearLogo} />
+        <View style={styles.form}>
+          <Field name="email" placeholder="Email" autoCapitalize="none" autoCorrect={false} component={renderInput} />
+          <Field name="password" placeholder="Mot de passe" secureTextEntry={true} component={renderInput} />
+          <Button style={styles.button} onPress={handleSubmit(this.submit)} disabled={invalid || submitting}>
+            <Text style={styles.buttonText}>Se Connecter</Text>
           </Button>
         </View>
-      </ScrollView>
+      </View>
     )
   }
 }
@@ -61,4 +66,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+const connectToRedux = connect(mapStateToProps, mapDispatchToProps)(Login)
+
+export default reduxForm({
+  form: 'login',
+  validate
+})(connectToRedux)

@@ -1,5 +1,6 @@
 import { call } from 'redux-saga/effects'
 import { Actions as NavigationActions, ActionConst } from 'react-native-router-flux'
+import SplashScreen from 'react-native-splash-screen'
 
 // Process OPEN_SCREEN actions
 export function * openScreen (action) {
@@ -8,4 +9,9 @@ export function * openScreen (action) {
   // You can override the RESET type in the options passed to the OPEN_SCREEN dispatch
   const mergedOptions = {type: ActionConst.RESET, ...options}
   yield call(NavigationActions[screen], mergedOptions)
+}
+
+// Process CLOSE_SPLASH actions
+export function * closeSplash (action) {
+  yield call(SplashScreen.hide)
 }

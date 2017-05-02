@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/DrawerContentStyle'
-import OpenScreenActions from '../Redux/OpenScreenRedux'
+import ScreenActions from '../Redux/ScreenRedux'
 import { connect } from 'react-redux'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -86,10 +86,10 @@ DrawerContent.contextTypes = {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  openLiveAdd: () => dispatch(OpenScreenActions.openScreen("liveAdd")),
-  openLiveList: () => dispatch(OpenScreenActions.openScreen("liveList")),
-  openLive: () => dispatch(OpenScreenActions.openScreen("live")),
-  openLogin: () => dispatch(OpenScreenActions.openScreen("login"))
+  openLiveAdd: () => dispatch(ScreenActions.openScreen("liveAdd")),
+  openLiveList: () => dispatch(ScreenActions.openScreen("liveList")),
+  openLive: () => dispatch(ScreenActions.openScreen("live")),
+  openLogin: () => dispatch(ScreenActions.openScreen("login"))
 
 })
 

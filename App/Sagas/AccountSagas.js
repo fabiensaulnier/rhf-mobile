@@ -12,7 +12,7 @@
 
 import { call, put } from 'redux-saga/effects'
 import AccountActions from '../Redux/AccountRedux'
-import OpenScreenActions from '../Redux/OpenScreenRedux'
+import ScreenActions from '../Redux/ScreenRedux'
 import firebase from '../Services/Firebase'
 
 export function * signUp (action) {
@@ -22,7 +22,7 @@ export function * signUp (action) {
     const auth = firebase.auth();
     const user = yield call([auth, auth.createUserWithEmailAndPassword], data.email, data.password);
     yield put(AccountActions.signUpSuccess(user));
-    yield put(OpenScreenActions.openScreen("launchScreen"));
+    yield put(ScreenActions.openScreen("home"));
 
   } catch (error) {
     yield put(AccountActions.signUpFailure());
@@ -36,7 +36,7 @@ export function * signIn (action) {
     const auth = firebase.auth();
     const user = yield call([auth, auth.signInWithEmailAndPassword], data.email, data.password);
     yield put(AccountActions.signInSuccess(user));
-    yield put(OpenScreenActions.openScreen("launchScreen"));
+    yield put(ScreenActions.openScreen("home"));
 
   } catch (error) {
     yield put(AccountActions.signInFailure());

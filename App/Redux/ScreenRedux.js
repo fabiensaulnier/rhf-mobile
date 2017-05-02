@@ -3,8 +3,9 @@ import { createActions } from 'reduxsauce'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  openScreen: ['screen', 'options']
+  openScreen: ['screen', 'options'],
+  closeSplash: null
 })
 
-export const OpenScreenTypes = Types
+export const ScreenTypes = Types
 export default Creators

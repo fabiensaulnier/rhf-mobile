@@ -18,6 +18,7 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
+  current: null,
   data: null,
   fetching: null,
   payload: null,
@@ -32,10 +33,8 @@ export const signUpRequest = (state, { data }) =>
   state.merge({ fetching: true, data, payload: null })
 
 // successful api lookup
-export const signUpSuccess = (state, action) => {
-  const { payload } = action
-  return state.merge({ fetching: false, error: null, payload })
-}
+export const signUpSuccess = (state, action) =>
+  state.merge({ fetching: false, error: null })
 
 // Something went wrong somewhere.
 export const signUpFailure = state =>
@@ -46,10 +45,8 @@ export const signInRequest = (state, { data }) =>
   state.merge({ fetching: true, data, payload: null })
 
 // successful api lookup
-export const signInSuccess = (state, action) => {
-  const { payload } = action
-  return state.merge({ fetching: false, error: null, payload })
-}
+export const signInSuccess = (state, action) =>
+  state.merge({ fetching: false, error: null})
 
 // Something went wrong somewhere.
 export const signInFailure = state =>

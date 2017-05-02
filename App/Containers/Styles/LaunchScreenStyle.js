@@ -3,12 +3,11 @@ import { Metrics, Colors, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
-  container: {
+  mainContainer: {
     flex: 1,
-    marginTop: Metrics.navBarHeight,
-    padding: 10
+    backgroundColor: Colors.background,
   },
-  centered: {
-    alignItems: 'center'
+  logo: {
+    
   }
 })

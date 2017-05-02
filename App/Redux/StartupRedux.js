@@ -15,8 +15,6 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  onlineList: [],
-  offlineList: [],
   connectionChecked: false
 })
 

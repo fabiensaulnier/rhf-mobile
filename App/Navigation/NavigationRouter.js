@@ -23,11 +23,11 @@ class NavigationRouter extends Component {
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navBar={CustomNavBar}>
             <Scene key='launchScreen' initial component={LaunchScreen} hideNavBar />
+            <Scene key='login' component={Login} title='Login' hideNavBar />
             <Scene key='home' component={Home} title='Roller Hockey France' />
             <Scene key='liveAdd' component={LiveAdd} title='Faire un live' />
             <Scene key='liveList' component={LiveList} title='Lives' />
             <Scene key='live' component={Live} title='Live' />
-            <Scene key='login' component={Login} title='Login' hideNavBar />
           </Scene>
         </Scene>
       </Router>

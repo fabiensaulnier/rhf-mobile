@@ -12,7 +12,7 @@
 
 import { call, put } from 'redux-saga/effects'
 import LiveActions from '../Redux/LiveRedux'
-import OpenScreenActions from '../Redux/OpenScreenRedux'
+import ScreenActions from '../Redux/ScreenRedux'
 import firebase from '../Services/Firebase'
 import LiveConfig from '../Config/LiveConfig'
 
@@ -31,7 +31,7 @@ export function * createLive (action) {
       events: []
     });
     yield put(LiveActions.createLiveSuccess(item));
-    yield put(OpenScreenActions.openScreen("launchScreen"));
+    yield put(ScreenActions.openScreen("home"));
 
   } catch (error) {
     yield put(LiveActions.createLiveFailure());

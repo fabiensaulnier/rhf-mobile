@@ -8,11 +8,29 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { Images, Colors, Metrics } from '../Themes'
 
 class DrawerContent extends Component {
+
+  openLiveList = () => {
+    this.props.openLiveList()
+    this.context.drawer.close()
+  }
+  openLiveAdd = () => {
+    this.props.openLiveAdd()
+    this.context.drawer.close()
+  }
+  openLive = () => {
+    this.props.openLive()
+    this.context.drawer.close()
+  }
+  openLogin = () => {
+    this.props.openLogin()
+    this.context.drawer.close()
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
 
-        <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
+        <TouchableOpacity onPress={this.openLiveList} style={styles.button}>
           <View style={styles.item}>
             <Icon name='podcast'
               size={Metrics.icons.medium}
@@ -24,7 +42,7 @@ class DrawerContent extends Component {
         </TouchableOpacity>
 
 
-        <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
+        <TouchableOpacity onPress={this.openLiveList} style={styles.button}>
           <View style={styles.item}>
             <Icon name='calendar'
               size={Metrics.icons.medium}
@@ -35,7 +53,7 @@ class DrawerContent extends Component {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.openLiveList} style={styles.button}>
+        <TouchableOpacity onPress={this.openLiveList} style={styles.button}>
           <View style={styles.item}>
             <Icon name='feed'
               size={Metrics.icons.medium}
@@ -48,13 +66,13 @@ class DrawerContent extends Component {
 
 
         <Text style={styles.text}>DEV</Text>
-        <TouchableOpacity onPress={this.props.openLiveAdd} style={styles.button}>
+        <TouchableOpacity onPress={this.openLiveAdd} style={styles.button}>
           <Text style={styles.text}>Faire un live</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.props.openLogin} style={styles.button}>
+        <TouchableOpacity onPress={this.openLogin} style={styles.button}>
           <Text style={styles.text}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.props.openLive} style={styles.button}>
+        <TouchableOpacity onPress={this.openLive} style={styles.button}>
           <Text style={styles.text}>openLive</Text>
         </TouchableOpacity>
 

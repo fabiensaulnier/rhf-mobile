@@ -2,13 +2,14 @@ import React from 'react'
 import {  ScrollView, Text,  View, TouchableOpacity } from 'react-native'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
 
-import { Colors, Metrics } from '../Themes'
+import { Colors, Metrics } from 'App/Themes'
 import { connect } from 'react-redux'
-import LiveActions from '../Redux/LiveRedux'
+import LiveActions from 'App/Redux/LiveRedux'
 import { Icon, Image, Screen, ListView, Tile, Title, Subtitle, Divider, Heading, Caption, Video } from '@shoutem/ui';
 import _ from 'lodash'
+
 // Styles
-import styles from './Styles/LiveStyle'
+import styles from 'App/Containers/Live/Styles/LiveStyle'
 
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView, View, DatePickerIOS, TextInput} from 'react-native'
 import { Text, Title, Caption, Button, Icon, Divider } from '@shoutem/ui';
 import { connect } from 'react-redux'
-import LiveActions from '../Redux/LiveRedux'
+import LiveActions from 'App/Redux/LiveRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 

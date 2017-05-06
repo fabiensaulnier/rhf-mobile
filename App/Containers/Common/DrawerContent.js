@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Image, BackAndroid, Text, TouchableOpacity } from 'react-native'
-import styles from './Styles/DrawerContentStyle'
-import ScreenActions from '../Redux/ScreenRedux'
 import { connect } from 'react-redux'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { Images, Colors, Metrics } from '../Themes'
+import { Images, Colors, Metrics } from 'App/Themes'
+import styles from 'App/Containers/Common/Styles/DrawerContentStyle'
+import ScreenActions from 'App/Redux/ScreenRedux'
+
 
 class DrawerContent extends Component {
 

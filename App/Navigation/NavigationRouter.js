@@ -5,11 +5,11 @@ import NavigationDrawer from './NavigationDrawer'
 import CustomNavBar from './CustomNavBar'
 
 // screens identified by the router
-import LaunchScreen from '../Containers/LaunchScreen'
-import Home from '../Containers/Home'
-import LiveAdd from '../Containers/LiveAdd'
-import LiveList from '../Containers/LiveList'
-import Live from '../Containers/Live'
+import LaunchScreen from 'App/Containers/LaunchScreen'
+import Home from 'App/Containers/Home'
+import LiveAdd from 'App/Containers/Live/LiveAdd'
+import LiveList from '../Containers/Live/LiveList'
+import Live from '../Containers/Live/Live'
 import Login from '../Containers/Login'
 
 /* **************************

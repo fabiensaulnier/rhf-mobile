@@ -47,7 +47,7 @@ class Login extends React.Component {
           <Field name="email" placeholder="Email" autoCapitalize="none" autoCorrect={false} component={renderInput} />
           <Field name="password" placeholder="Mot de passe" secureTextEntry={true} component={renderInput} />
           <Button style={styles.button} onPress={handleSubmit(this.submit)} disabled={invalid || submitting}>
-            <Text style={styles.buttonText}>Se Connecter</Text>
+            <Text style={styles.buttonText}>Se connecter</Text>
           </Button>
         </View>
       </View>

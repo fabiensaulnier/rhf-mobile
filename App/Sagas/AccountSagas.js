@@ -25,6 +25,7 @@ export function * signUp (action) {
     yield put(ScreenActions.openScreen("home"));
 
   } catch (error) {
+    console.log(error);
     yield put(AccountActions.signUpFailure());
   }
 }

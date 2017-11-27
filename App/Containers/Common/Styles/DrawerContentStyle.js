@@ -8,15 +8,19 @@ export default {
     paddingTop: 10,
     paddingBottom: 10,
   },
-  text: {
-    color: '#fff',
-    fontSize: 20
-  },
   item: {
     flex: 1,
     flexDirection: 'row'
   },
-  idemIcon: {
-    paddingRight: 10
+  itemIcon: {
+    paddingRight: 10,
+    flex: 1,
+    flexDirection: 'column'
+  },
+  itemLabel: {
+    flex: 9,
+    flexDirection: 'column',
+    color: '#fff',
+    fontSize: 20
   }
 }

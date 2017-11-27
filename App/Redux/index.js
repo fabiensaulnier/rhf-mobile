@@ -6,9 +6,10 @@ import { reducer as formReducer } from 'redux-form'
 export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
-    startup: require('./StartupRedux').reducer,
-    live: require('./LiveRedux').reducer,
     account: require('./AccountRedux').reducer,
+    competition: require('./CompetitionRedux').reducer,
+    live: require('./LiveRedux').reducer,
+    startup: require('./StartupRedux').reducer,
     form: formReducer
   })
 

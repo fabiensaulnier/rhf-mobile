@@ -34,7 +34,7 @@ const validate = values => {
 class Login extends React.Component {
 
   submit = (values) => {
-    this.props.signUp(values)
+    this.props.signIn(values)
   }
 
   render () {
@@ -49,6 +49,7 @@ class Login extends React.Component {
           <Button style={styles.button} onPress={handleSubmit(this.submit)} disabled={invalid || submitting}>
             <Text style={styles.buttonText}>Se connecter</Text>
           </Button>
+          <Text style={styles.text}>Créer un compte | Mot de passe oublié ?</Text>
         </View>
       </View>
     )
@@ -62,7 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: (data) => dispatch(AccountActions.signUpRequest(data))
+    signIn: (data) => dispatch(AccountActions.signInRequest(data))
   }
 }
 

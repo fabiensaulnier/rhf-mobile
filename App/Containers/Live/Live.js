@@ -1,5 +1,5 @@
 import React from 'react'
-import {  ScrollView, Text,  View, TouchableOpacity } from 'react-native'
+import { ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
 
 import { Colors, Metrics } from 'App/Themes'

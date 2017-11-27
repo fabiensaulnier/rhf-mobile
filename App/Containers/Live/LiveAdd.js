@@ -3,8 +3,6 @@ import { ScrollView, View, DatePickerIOS, TextInput} from 'react-native'
 import { Text, Title, Caption, Button, Icon, Divider } from '@shoutem/ui';
 import { connect } from 'react-redux'
 import LiveActions from 'App/Redux/LiveRedux'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
 
 // Styles
 import styles from './Styles/LiveAddStyle'
@@ -108,8 +106,5 @@ const mapDispatchToProps = (dispatch) => {
     createLiveFailure: (action) => dispatch(LiveActions.createLiveFailure(action))
   }
 }
-
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddLive)

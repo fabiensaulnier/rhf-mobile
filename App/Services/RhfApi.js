@@ -1,6 +1,6 @@
 // https://github.com/infinitered/ignite-ir-boilerplate/blob/master/boilerplate/App/Services/Api.js
 import apisauce from 'apisauce'
-// our "constructor"
+
 const create = (baseURL = 'http://roller-hockey-france-elite.herokuapp.com/') => {
 
   const api = apisauce.create({
@@ -16,7 +16,6 @@ const create = (baseURL = 'http://roller-hockey-france-elite.herokuapp.com/') =>
   const getStatistiques = () => api.get('elite/statistiques')
 
   return {
-    // a list of the API functions from step 2
     getClassement,
     getMatchs,
     getStatistiques

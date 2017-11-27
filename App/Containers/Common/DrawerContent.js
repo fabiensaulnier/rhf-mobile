@@ -27,6 +27,16 @@ class DrawerContent extends Component {
     this.context.drawer.close()
   }
 
+  openCompetitions = () => {
+    this.props.openCompetitions()
+    this.context.drawer.close()
+  }
+
+  openClassement = () => {
+    this.props.openClassement()
+    this.context.drawer.close()
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -36,21 +46,20 @@ class DrawerContent extends Component {
             <Icon name='podcast'
               size={Metrics.icons.medium}
               color={Colors.snow}
-              style={styles.idemIcon}
+              style={styles.itemIcon}
             />
-            <Text style={styles.text}>Lives</Text>
+            <Text style={styles.itemLabel}>Lives</Text>
           </View>
         </TouchableOpacity>
 
-
-        <TouchableOpacity onPress={this.openLiveList} style={styles.button}>
+        <TouchableOpacity onPress={this.openCompetitions} style={styles.button}>
           <View style={styles.item}>
             <Icon name='calendar'
               size={Metrics.icons.medium}
               color={Colors.snow}
-              style={styles.idemIcon}
+              style={styles.itemIcon}
             />
-            <Text style={styles.text}>Matchs</Text>
+            <Text style={styles.itemLabel}>Competitions</Text>
           </View>
         </TouchableOpacity>
 
@@ -59,22 +68,26 @@ class DrawerContent extends Component {
             <Icon name='feed'
               size={Metrics.icons.medium}
               color={Colors.snow}
-              style={styles.idemIcon}
+              style={styles.itemIcon}
             />
-            <Text style={styles.text}>Actualités</Text>
+            <Text style={styles.itemLabel}>Actualités</Text>
           </View>
         </TouchableOpacity>
 
 
-        <Text style={styles.text}>DEV</Text>
+        <Text style={styles.itemLabel}>DEV</Text>
         <TouchableOpacity onPress={this.openLiveAdd} style={styles.button}>
-          <Text style={styles.text}>Faire un live</Text>
+          <Text style={styles.itemLabel}>Faire un live</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.openLogin} style={styles.button}>
-          <Text style={styles.text}>Login</Text>
+          <Text style={styles.itemLabel}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.openLive} style={styles.button}>
-          <Text style={styles.text}>openLive</Text>
+          <Text style={styles.itemLabel}>openLive</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.openClassement} style={styles.button}>
+          <Text style={styles.itemLabel}>Classement</Text>
         </TouchableOpacity>
 
       </ScrollView>
@@ -90,8 +103,9 @@ const mapDispatchToProps = (dispatch) => ({
   openLiveAdd: () => dispatch(ScreenActions.openScreen("liveAdd")),
   openLiveList: () => dispatch(ScreenActions.openScreen("liveList")),
   openLive: () => dispatch(ScreenActions.openScreen("live")),
-  openLogin: () => dispatch(ScreenActions.openScreen("login"))
-
+  openLogin: () => dispatch(ScreenActions.openScreen("login")),
+  openCompetitions: () => dispatch(ScreenActions.openScreen("competitionList")),
+  openClassement: () => dispatch(ScreenActions.openScreen("classement"))
 })
 
 

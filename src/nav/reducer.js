@@ -10,7 +10,13 @@ const reducer = (state, action) => {
   switch (action.type) {
     case USER_READY:
       if (action.user) {
-        nextState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Home'));
+        nextState = AppNavigator.router.getStateForAction(
+          NavigationActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({ routeName: 'drawerStack' })],
+          }),
+          state,
+        );
       } else {
         nextState = AppNavigator.router.getStateForAction(action, state);
       }

@@ -3,6 +3,7 @@ import { connect, Provider } from 'react-redux';
 import { addNavigationHelpers } from 'react-navigation';
 
 import AppNavigator from './src/navigator';
+import Initiator from './src/core/components/Initiator';
 import { store } from './src/redux';
 
 const AppWithNavigationState = ({ dispatch, nav }) => (
@@ -15,10 +16,12 @@ const mapStateToProps = state => ({
 
 const App = connect(mapStateToProps)(AppWithNavigationState);
 
-const Root = () => (
+const Root = () => ((
   <Provider store={store}>
-    <App />
+    <Initiator>
+      <App />
+    </Initiator>
   </Provider>
-);
+))
 
 export default Root;

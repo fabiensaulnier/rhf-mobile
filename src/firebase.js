@@ -11,13 +11,4 @@ const config = {
 
 firebase.initializeApp(config);
 
-// Listen for authentication state to change.
-firebase.auth().onAuthStateChanged((user) => {
-  if (user != null) {
-    console.log("We are authenticated now!");
-  }
-
-  // Do other things
-});
-
 export default firebase;

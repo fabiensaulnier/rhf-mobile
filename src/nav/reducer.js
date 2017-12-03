@@ -2,9 +2,7 @@ import { NavigationActions } from 'react-navigation';
 
 import AppNavigator from '../navigator';
 import { USER_READY } from '../core/constants';
-import { CREATE_EVENT_SUCCESS } from '../events/constants';
 import { REGISTER_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS } from '../users/constants';
-import { CREATE_POLL_SUCCESS, CREATE_VOTE_SUCCESS } from '../polls/constants';
 
 const reducer = (state, action) => {
   let nextState;
@@ -19,8 +17,6 @@ const reducer = (state, action) => {
       break;
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-    case CREATE_VOTE_SUCCESS:
-    case CREATE_EVENT_SUCCESS:
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.reset({
           index: 0,

@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import PollsHorizontal from '../../polls/components/PollsHorizontal';
-import EventsHorizontal from '../../events/components/EventsHorizontal';
-import FactsHorizontal from '../../trips/components/FactsHorizontal';
-
 const Container = styled.View`
   flex: 1;
   background-color: #fff;
@@ -32,16 +28,6 @@ const HomeScreen = ({ navigation }) => (
       <Title>Polls</Title>
       <Action>Show More</Action>
     </Options>
-    <PollsHorizontal navigation={navigation} />
-    <Options>
-      <Title>Schedule</Title>
-      <Action>Show More</Action>
-    </Options>
-    <EventsHorizontal navigation={navigation} />
-    <Options>
-      <Title>Quick facts</Title>
-    </Options>
-    {/* <FactsHorizontal navigation={navigation} /> */}
   </Container>
 );
 

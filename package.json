@@ -6,6 +6,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "@expo/vector-icons": "~6.2.0",
+    "apisauce": "^0.14.2",
     "apollo-client-preset": "^1.0.2",
     "apollo-link-context": "^1.0.0",
     "apollo-link-error": "^1.0.0",

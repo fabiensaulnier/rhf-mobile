@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import { client } from '../apollo';
+import { client } from '../redux';
 import { createPollMutation } from './queries';
 
 import { createPollSuccess, createPollError } from './actions';

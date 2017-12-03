@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import { client } from '../apollo';
+import { client } from '../redux';
 import { createEventMutation } from './queries';
 
 import { CREATE_EVENT } from './constants';

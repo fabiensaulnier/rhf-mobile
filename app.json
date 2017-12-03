@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "RHF",
+    "slug": "rhf",
+    "sdkVersion": "22.0.0",
+    "version": "1.0.0",
+    "privacy": "unlisted",
+    "orientation": "portrait",
+    "primaryColor": "#0371B2",
+    "icon":
+      "https://s3-eu-west-1.amazonaws.com/ia-bucket/nomadhouse/logo-512x512.png",
+    "loading": {
+      "icon":
+        "https://s3-eu-west-1.amazonaws.com/ia-bucket/nomadhouse/logo-512x512.png",
+      "hideExponentText": true,
+      "backgroundColor": "#0371B2"
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    },
+    "extra": {
+      "graphcoolUri":
+        "https://api.graph.cool/simple/v1/cj699o3ke4v0b0108jz9bhxu8",
+      "color": "#0371B2"
+    },
+    "ios": {
+      "bundleIdentifier": "com.rhf.app",
+      "supportsTablet": false,
+      "config": {
+        // "googleMapsApiKey": "AIzaSyBQa7EygIcr89slKniKT95gIkDx-xB7BwU"
+      }
+    },
+    "android": {
+      "package": "com.rhf.app",
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+      "config": {
+        "googleMaps": {
+          // "apiKey": "AIzaSyDTCuu3Lk0VMmbF1XcG9QEEwfsrTEtfeQM"
+        }
+      }
+    }
+  }
+}

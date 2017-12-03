@@ -1,33 +1,32 @@
 import { createLogic } from 'redux-logic';
 
 import { client } from '../redux';
-import { createPollMutation } from './queries';
 
-import { createPollSuccess, createPollError } from './actions';
-import { CREATE_POLL } from './constants';
+import { createLiveSuccess, createLiveError } from './actions';
+import { CREATE_LIVE } from './constants';
 
-const createPollLogic = createLogic({
-  type: CREATE_POLL,
+const createLiveLogic = createLogic({
+  type: CREATE_LIVE,
   latest: true,
   process({ getState, action }, dispatch, done) {
     const currentUser = getState().users.currentUser;
 
     client
       .mutate({
-        mutation: createPollMutation,
+        mutation: createLiveMutation,
         variables: {
           ...action,
           createdById: currentUser.id,
         },
       })
       .then((result) => {
-        dispatch(createPollSuccess(result.data.createPoll));
+        dispatch(createLiveSuccess(result.data.createLive));
       })
       .catch((err) => {
-        dispatch(createPollError(err));
+        dispatch(createLiveError(err));
       })
       .then(() => done());
   },
 });
 
-export default [createPollLogic];
+export default [createLiveLogic];

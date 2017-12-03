@@ -1,14 +1,14 @@
-import { CREATE_EVENT, CREATE_EVENT_SUCCESS, CREATE_EVENT_ERROR } from './constants';
+import { CREATE_COMPETITION, CREATE_COMPETITION_SUCCESS, CREATE_COMPETITION_ERROR } from './constants';
 
 export const createEvent = () => ({
-  type: CREATE_EVENT,
+  type: CREATE_COMPETITION,
 });
 
 export const createEventSuccess = () => ({
-  type: CREATE_EVENT_SUCCESS,
+  type: CREATE_COMPETITION_SUCCESS,
 });
 
 export const createEventError = error => ({
-  type: CREATE_EVENT_ERROR,
+  type: CREATE_COMPETITION_ERROR,
   error,
 });

@@ -18,8 +18,12 @@ const loginLogic = createLogic({
   latest: true,
   async process({ action }, dispatch, done) {
     try {
+      const { email, password } = action.user;
       const auth = firebase.auth();
-      await auth.signInWithEmailAndPassword(action.email, action.password);
+
+      await auth.signInWithEmailAndPassword(email, password);
+
+      console.log('oii')
 
       // await AsyncStorage.setItem('token', user.token);
 

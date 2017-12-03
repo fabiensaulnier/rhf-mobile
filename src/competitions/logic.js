@@ -1,13 +1,12 @@
 import { createLogic } from 'redux-logic';
 
 import { client } from '../redux';
-import { createEventMutation } from './queries';
 
-import { CREATE_EVENT } from './constants';
-import { createEventSuccess, createEventError } from './actions';
+import { CREATE_COMPETITION } from './constants';
+import { createCompetitionSuccess, createCompetitionError } from './actions';
 
-const createEventLogic = createLogic({
-  type: CREATE_EVENT,
+const createCompetitionLogic = createLogic({
+  type: CREATE_COMPETITION,
   latest: true,
   process({ getState, action }, dispatch, done) {
     const event = getState().events.createForm.values;
@@ -15,7 +14,7 @@ const createEventLogic = createLogic({
 
     client
       .mutate({
-        mutation: createEventMutation,
+        mutation: 'createCompetitionMutation',
         variables: {
           ...event,
           start: action.start,
@@ -24,13 +23,13 @@ const createEventLogic = createLogic({
         },
       })
       .then((result) => {
-        dispatch(createEventSuccess(result.data.createEvent));
+        dispatch(createCompetitionSuccess(result.data.createCompetition));
       })
       .catch((err) => {
-        dispatch(createEventError(err));
+        dispatch(createCompetitionError(err));
       })
       .then(() => done());
   },
 });
 
-export default [createEventLogic];
+export default [createCompetitionLogic];

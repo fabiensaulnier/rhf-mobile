@@ -1,4 +1,4 @@
-import { CREATE_EVENT, CREATE_EVENT_SUCCESS, CREATE_EVENT_ERROR } from './constants';
+import { CREATE_COMPETITION, CREATE_COMPETITION_SUCCESS, CREATE_COMPETITION_ERROR } from './constants';
 
 const initialState = {
   createForm: {
@@ -19,7 +19,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_EVENT:
+    case CREATE_COMPETITION:
       return {
         ...state,
         createForm: {
@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
           loading: true,
         },
       };
-    case CREATE_EVENT_SUCCESS:
+    case CREATE_COMPETITION_SUCCESS:
       return {
         ...state,
         createForm: {
@@ -44,7 +44,7 @@ const reducer = (state = initialState, action) => {
           loading: false,
         },
       };
-    case CREATE_EVENT_ERROR:
+    case CREATE_COMPETITION_ERROR:
       return {
         ...state,
         createForm: {

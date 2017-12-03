@@ -1,14 +1,14 @@
-import { CREATE_POLL, CREATE_POLL_SUCCESS, CREATE_POLL_ERROR } from './constants';
+import { CREATE_LIVE, CREATE_LIVE_SUCCESS, CREATE_LIVE_ERROR } from './constants';
 
 export const createPoll = () => ({
-  type: CREATE_POLL,
+  type: CREATE_LIVE,
 });
 
 export const createPollSuccess = () => ({
-  type: CREATE_POLL_SUCCESS,
+  type: CREATE_LIVE_SUCCESS,
 });
 
 export const createPollError = error => ({
-  type: CREATE_POLL_ERROR,
+  type: CREATE_LIVE_ERROR,
   error,
 });

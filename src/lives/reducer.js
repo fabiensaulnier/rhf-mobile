@@ -1,4 +1,4 @@
-import { CREATE_POLL, CREATE_POLL_SUCCESS, CREATE_POLL_ERROR } from './constants';
+import { CREATE_LIVE, CREATE_LIVE_SUCCESS, CREATE_LIVE_ERROR } from './constants';
 
 const initialState = {
   createForm: {
@@ -13,7 +13,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_POLL:
+    case CREATE_LIVE:
       return {
         ...state,
         createForm: {
@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
           loading: true,
         },
       };
-    case CREATE_POLL_SUCCESS:
+    case CREATE_LIVE_SUCCESS:
       return {
         ...state,
         createForm: {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
           loading: false,
         },
       };
-    case CREATE_POLL_ERROR:
+    case CREATE_LIVE_ERROR:
       return {
         ...state,
         createForm: {

@@ -1,6 +1,3 @@
-// This will be used later in our root reducer and selectors
-export const NAME = 'events';
-
-export const CREATE_EVENT = 'CREATE_EVENT';
-export const CREATE_EVENT_SUCCESS = 'CREATE_EVENT_SUCCESS';
-export const CREATE_EVENT_ERROR = 'CREATE_EVENT_ERROR';
+export const CREATE_COMPETITION = 'CREATE_COMPETITION';
+export const CREATE_COMPETITION_SUCCESS = 'CREATE_COMPETITION_SUCCESS';
+export const CREATE_COMPETITION_ERROR = 'CREATE_COMPETITION_ERROR';

@@ -25,8 +25,7 @@ const Action = styled.Text``;
 const HomeScreen = ({ navigation }) => (
   <Container>
     <Options>
-      <Title>Polls</Title>
-      <Action>Show More</Action>
+      <Title>Live</Title>
     </Options>
   </Container>
 );

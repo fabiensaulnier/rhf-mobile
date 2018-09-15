@@ -1,1 +1,0 @@
-../../../../FirebaseAppIndexing/Frameworks/frameworks/FirebaseAppIndexing.framework/Headers/FIRAppIndexing.h

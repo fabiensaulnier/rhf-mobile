@@ -1,5 +1,9 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "name": "Roller Hockey France",
+    "slug": "rhf",
+    "sdkVersion": "27.0.0",
+    "githubUrl": "https://github.com/fabiensaulnier/rhf-mobile",
+    "primaryColor": "#000000"
   }
 }

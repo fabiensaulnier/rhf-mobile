@@ -5,26 +5,10 @@ import {
 } from 'react-native';
 
 import Classement from './Classement';
+import Resultats from './Resultats';
+import Statistiques from './Statistiques';
 
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-
-
-
-class Resultats extends React.Component {
-  render() {
-    return <Text>
-      Resultats
-    </Text>;
-  }
-}
-
-class Statistiques extends React.Component {
-  render() {
-    return <Text>
-      Statistiques
-    </Text>;
-  }
-}
 
 const RouteConfigs = {
   Classement: {

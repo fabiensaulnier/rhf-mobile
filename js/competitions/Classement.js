@@ -45,7 +45,7 @@ class Classement extends React.Component {
     super(props)
   }
   render() {
-    var EquipesElite = [{position:1,equipe:"Rethel",matchFini:0,point:0,victoire:0,defaite:0,victoireProlongation:0},
+    var equipes = [{position:1,equipe:"Rethel",matchFini:0,point:0,victoire:0,defaite:0,victoireProlongation:0},
                         {position:1,equipe:"Grenoble",matchFini:0,point:0,victoire:0,defaite:0,victoireProlongation:0},
                         {position:1,equipe:"Anglet",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
                         {position:1,equipe:"Epernay",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
@@ -59,7 +59,7 @@ class Classement extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Table height={320} columnWidth={30} columns={columns} dataSource={EquipesElite} />
+        <Table  columnWidth={30} columns={columns} dataSource={equipes} />
       </View>
 
     );

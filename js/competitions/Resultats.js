@@ -6,12 +6,12 @@ import {
   Button
 } from 'react-native';
 
-class Statistiques extends React.Component {
+class Resultats extends React.Component {
   render() {
     return <Text>
-      Statistiques
+      Resultats
     </Text>;
   }
 }
 
-export default Statistiques;
+export default Resultats;

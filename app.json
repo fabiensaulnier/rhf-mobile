@@ -2,7 +2,7 @@
   "expo": {
     "name": "Roller Hockey France",
     "description": "L'actualité du Roller Hockey en France",
-    "slug": "rhf",
+    "slug": "rhf-mobile",
     "sdkVersion": "27.0.0",
     "githubUrl": "https://github.com/fabiensaulnier/rhf-mobile",
     "primaryColor": "#002c48",

@@ -2,66 +2,49 @@ import React, { Component } from 'react';
 import {
   Text,
   StyleSheet,
-  View,
-  Button
+  View
 } from 'react-native';
-import Table from 'react-native-simple-table'
+import Table from 'react-native-simple-table';
+import { getClassement } from '../services/RhfApi'
+
+const smallWidth = 40;
+const largeWidth = 150;
 const columns = [
-  {
-    title: '#',
-    dataIndex: 'position'
-  },
-  {
-    title: 'Équipe',
-    dataIndex: 'equipe',
-    width: 100
-  },
-  {
-    title: 'MJ',
-    dataIndex: 'matchFini',
-    width: 50
-  },
-  {
-    title: 'PTS',
-    dataIndex: 'point',
-    width: 40
-  },
-  {
-    title: 'V',
-    dataIndex: 'victoire'
-  },
-  {
-    title: 'Vp',
-    dataIndex: 'victoireProlongation'
-  },
-  {
-    title: 'D',
-    dataIndex: 'defaite'
-  },
+  { title: '#', dataIndex: 'position', width: smallWidth },
+  { title: 'Équipe', dataIndex: 'nom', width: largeWidth },
+  { title: 'Pts.', dataIndex: 'point', width: smallWidth },
+  { title: 'J', dataIndex: 'match', width: smallWidth },
+  { title: 'V', dataIndex: 'victoire', width: smallWidth },
+  { title: 'VP', dataIndex: 'victoireProlongation', width: smallWidth },
+  { title: 'VTAB', dataIndex: 'victoireTab', width: smallWidth },
+  { title: 'D', dataIndex: 'perdu', width: smallWidth },
+  { title: 'DP', dataIndex: 'perduProlongation', width: smallWidth },
+  { title: 'DTAB', dataIndex: 'perduTab', width: smallWidth },
+  { title: 'F', dataIndex: 'forfait', width: smallWidth },
+  { title: '+', dataIndex: 'plus', width: smallWidth },
+  { title: '-', dataIndex: 'moins', width: smallWidth },
+  { title: '+/-', dataIndex: 'diff', width: smallWidth },
 ];
 
 class Classement extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
+    this.state = { classement: undefined }
   }
-  render() {
-    var equipes = [{position:1,equipe:"Rethel",matchFini:0,point:0,victoire:0,defaite:0,victoireProlongation:0},
-                        {position:1,equipe:"Grenoble",matchFini:0,point:0,victoire:0,defaite:0,victoireProlongation:0},
-                        {position:1,equipe:"Anglet",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Epernay",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Bordeaux",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Caen",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Villeneuve-la-garenne",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Paris",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Garges",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0},
-                        {position:1,equipe:"Angers",matchFini:0,point:0,victoire:0,defaite:0, victoireProlongation:0}
-                      ];
 
+  componentWillMount() {
+    getClassement(this.props.competitionId)
+      .then((json) => {
+        this.setState({ classement : json });
+      });
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <Table  columnWidth={30} columns={columns} dataSource={equipes} />
+        <Table columnWidth={30} height={350} columns={columns} dataSource={this.state.classement} />
+        <Text># : position, Pts. : points, J : Matchs joués, ...</Text>
       </View>
-
     );
   }
 }
@@ -71,18 +54,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#EEE',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop:25
+    justifyContent: 'center'
   },
-  TextStyle:{
-    fontSize : 25,
-     textAlign: 'center'
-  },
-  title: {
-    fontSize: 18,
-    padding: 10,
-    textAlign: 'center'
-  }
+
 });
 
 export default Classement;

@@ -43,7 +43,7 @@ class Classement extends React.Component {
     return (
       <View style={styles.container}>
         <Table columnWidth={30} height={350} columns={columns} dataSource={this.state.classement} />
-        <Text># : position, Pts. : points, J : Matchs joués, ...</Text>
+        <Text>Légende (en mode dépliable) # : position, Pts. : points, J : Matchs joués, ...</Text>
       </View>
     );
   }
@@ -52,7 +52,6 @@ class Classement extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EEE',
     alignItems: 'center',
     justifyContent: 'center'
   },

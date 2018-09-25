@@ -42,20 +42,7 @@ const DrawerNavigatorConfig = {
   backBehavior: 'yes',
   contentOptions: {
     activeTintColor: '#00b4f1',
-  },
-  navigationOptions: ({ navigation }) => ({
-      headerLeft:
-      <TouchableOpacity  onPress={() => {navigation.dispatch(DrawerActions.toggleDrawer())} }>
-          <MenuImage style="styles.bar" navigation={navigation}/>
-      </TouchableOpacity>,
-      headerStyle: {
-          backgroundColor: '#002c48',
-      },
-      headerTintColor: 'white',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      }
-  })
+  }
 };
 <StatusBar barStyle="light-content" />
 const Drawer = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);

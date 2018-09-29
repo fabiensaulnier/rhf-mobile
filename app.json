@@ -1,16 +1,17 @@
 {
   "expo": {
     "name": "Roller Hockey France",
+    "version" : "v1.0.0",
     "description": "L'actualité du Roller Hockey en France",
     "slug": "rhf-mobile",
     "sdkVersion": "27.0.0",
     "githubUrl": "https://github.com/fabiensaulnier/rhf-mobile",
     "primaryColor": "#002c48",
-    "icon": "./assets/icons/icon.png",
+    "icon": "./assets/icon.png",
     "splash": {
       "backgroundColor": "#002c48",
       "resizeMode" : "cover",
-      "image": "./assets/icons/splash.png"
+      "image": "./assets/splash.png"
     }
   }
 }

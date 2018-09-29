@@ -8,7 +8,9 @@
     "primaryColor": "#002c48",
     "icon": "./assets/icons/icon.png",
     "splash": {
+      "backgroundColor": "#002c48",
+      "resizeMode" : "cover",
       "image": "./assets/icons/splash.png"
-    },
+    }
   }
 }

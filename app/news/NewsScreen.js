@@ -18,7 +18,7 @@ type State = {
   scrollY: Animated.Value,
 };
 
-class Home extends React.Component<any, State> {
+class NewsScreen extends React.Component<any, State> {
 
   state = {
     scrollY: new Animated.Value(0),
@@ -142,7 +142,7 @@ class Home extends React.Component<any, State> {
             </View>
           </SafeAreaView>
         </Animated.ScrollView>
-        
+
         <Animated.View
           style={[styles.statusBarUnderlay, { opacity: underlayOpacity }]}
         />
@@ -218,4 +218,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default NewsScreen;

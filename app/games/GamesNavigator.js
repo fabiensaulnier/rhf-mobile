@@ -1,10 +1,10 @@
 import React from 'react';
-import { createStackNavigator, withNavigation } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
-import CompetitionsSection from './../games/CompetitionsSection';
-import CompetitionsList from './../games/CompetitionsList';
-import CompetitionItem from './../games/CompetitionItem';
-import CompetitionDetail from './../games/CompetitionDetail';
+import CompetitionsSection from './CompetitionsSection';
+import CompetitionsList from './CompetitionsList';
+import CompetitionItem from './CompetitionItem';
+import CompetitionDetail from './CompetitionDetail';
 
 const Navigator = createStackNavigator(
   {

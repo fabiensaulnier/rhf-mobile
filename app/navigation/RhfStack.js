@@ -6,7 +6,7 @@ import HomeScreen from './../home/HomeScreen';
 import GamesNavigator from './../games/GamesNavigator';
 import NewsScreen from './../news/NewsScreen';
 import FavoritesScreen from './../favorites/FavoritesScreen';
-import MoreScreen from './../more/MoreScreen';
+import MoreNavigator from './../more/MoreNavigator';
 
 class Home extends React.Component {
   static navigationOptions = {
@@ -67,7 +67,7 @@ class More extends React.Component {
   };
 
   render() {
-    return <MoreScreen id="more" />;
+    return <MoreNavigator id="more" />;
   }
 }
 

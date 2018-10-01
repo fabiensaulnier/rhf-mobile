@@ -1,3 +1,5 @@
+// deprecated : use config/styles.js
+
 const tintColor = '#2f95dc';
 
 export default {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { SectionList, StyleSheet, Text, View, ActivityIndicator, } from 'react-native';
+import { SectionList, StyleSheet, Text, View, } from 'react-native';
+
+import Loading from './../components/Loading';
 import { firebaseApp } from './../services/Firebase';
 
 
@@ -48,7 +50,7 @@ export default class CompetitionSection extends Component<any, State> {
 
   render() {
     if (this.state.loading) {
-      return <ActivityIndicator size="large" />;
+      return <Loading />;
     }
     return (
       <View style={styles.container}>

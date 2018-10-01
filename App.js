@@ -38,7 +38,7 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
           {(this.state.isAuthenticated) ? <RhfStack /> : <AuthStack />}
         </View>

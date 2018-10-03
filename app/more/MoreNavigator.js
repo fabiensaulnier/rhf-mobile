@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
+import defaultNavigationConfig from './../components/HeaderStackNavigator';
 import MoreScreen from './MoreScreen';
 
 const Navigator = createStackNavigator(
@@ -9,6 +10,7 @@ const Navigator = createStackNavigator(
   },
   {
     initialRouteName: "MoreScreen",
+    navigationOptions: defaultNavigationConfig,
   }
 );
 

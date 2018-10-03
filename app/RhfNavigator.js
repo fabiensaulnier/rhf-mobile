@@ -3,7 +3,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 
 import tabBarIcon from './components/icons/tabBarIcon'
 import HomeScreen from './home/HomeScreen';
-import GamesNavigator from './games/GamesNavigator';
+import CompetitionsNavigator from './competitions/CompetitionsNavigator';
 import NewsScreen from './news/NewsScreen';
 import FavoritesScreen from './favorites/FavoritesScreen';
 import MoreNavigator from './more/MoreNavigator';
@@ -18,24 +18,13 @@ class Home extends React.Component {
   }
 }
 
-class Games extends React.Component {
+class Competitions extends React.Component {
   static navigationOptions = {
     title: "Compétitions",
     tabBarIcon: tabBarIcon('insert-invitation'),
-    headerStyle: {
-      backgroundColor: "#002c48",
-    },
-    headerTintColor: 'white',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
   };
-  
   render() {
-    return <GamesNavigator />;
+    return <CompetitionsNavigator />;
   }
 }
 
@@ -74,7 +63,7 @@ class More extends React.Component {
 
 const MaterialBottomTabNavigator = createMaterialBottomTabNavigator(
   {
-    Home, Games, News, Favorites, More,
+    Home, Competitions, News, Favorites, More,
   },
   {
     initialRouteName: 'Home',

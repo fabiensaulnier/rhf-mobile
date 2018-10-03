@@ -5,9 +5,9 @@ import {
   View,
   Button
 } from 'react-native';
-import { getResultats } from '../services/RhfApi'
+import { getResultats } from '../../services/RhfApi'
 
-class Palmares extends React.Component {
+class Resultats extends React.Component {
   constructor (props) {
     super(props);
     this.state = { resultats: undefined }
@@ -21,8 +21,8 @@ class Palmares extends React.Component {
   }
 
   render() {
-    return <Text>TODO (stockage firebase)</Text>;
+    return <Text>{JSON.stringify(this.state.resultats)}</Text>;
   }
 }
 
-export default Palmares;
+export default Resultats;

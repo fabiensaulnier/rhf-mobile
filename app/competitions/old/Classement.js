@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 import Table from 'react-native-simple-table';
-import { getClassement } from '../services/RhfApi'
+import { getClassement } from '../../services/RhfApi'
 
 const smallWidth = 40;
 const largeWidth = 150;

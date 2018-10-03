@@ -5,9 +5,9 @@ import Loading from './../components/Loading';
 import { firebaseApp } from './../services/Firebase';
 
 
-export default class CompetitionSection extends Component<any, State> {
+export default class CompetitionScreen extends Component<any, State> {
   static navigationOptions = {
-    title: "Competitions",
+    title: "Compétitions",
   };
 
   constructor(props) {

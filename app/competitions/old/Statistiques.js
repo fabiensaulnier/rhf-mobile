@@ -5,7 +5,7 @@ import {
   View,
   Button
 } from 'react-native';
-import { getStatistiques } from '../services/RhfApi'
+import { getStatistiques } from '../../services/RhfApi'
 
 class Statistiques extends React.Component {
   constructor (props) {

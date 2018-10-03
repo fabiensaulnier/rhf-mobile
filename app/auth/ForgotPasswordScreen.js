@@ -1,13 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
+import {
+  Alert,
+  StyleSheet,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { NavigationActions } from 'react-navigation';
+
 import { firebaseApp } from './../services/Firebase';
+import { colors } from './../config/styles';
+
 
 export default class ForgotPasswordScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Mot de passe oublié ?',
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -18,31 +24,53 @@ export default class ForgotPasswordScreen extends React.Component {
   onResetPasswordPress = () => {
     firebaseApp.auth().sendPasswordResetEmail(this.state.email)
       .then(() => {
-        Alert.alert("Password reset email has been sent.");
+        Alert.alert("Un e-mail de rénitialisation de mot de passe a été envoyé");
       }, (error) => {
         Alert.alert(error.message);
     });
   }
 
   render() {
-      return (
-          <View style={{flex:1, paddingTop:50, alignItems:"center"}}>
-
-              <TextInput style={{width: 200, height: 40, borderWidth: 1}}
-                  value={this.state.email}
-                  onChangeText={(text) => { this.setState({email: text}) }}
-                  placeholder="Email"
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-              />
-
-              <Button title="Reset Password" onPress={this.onResetPasswordPress} />
-          </View>
-      );
+    return (
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => this.setState({email: text})}
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType='email-address'
+          returnKeyType="go"
+          placeholder='Adresse e-mail'
+          placeholderTextColor='white'
+          underlineColorAndroid="transparent"
+        />
+        <TouchableOpacity style={styles.buttonContainer} onPress={this.onResetPasswordPress}>
+          <Text style={styles.buttonText}>RÉINITIALISER</Text>
+        </TouchableOpacity>
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  input:{
+    height: 40,
+    backgroundColor: 'lightgrey',
+    marginBottom: 10,
+    padding: 10,
+    color: colors.rhfBlue
+  },
+  buttonContainer:{
+    backgroundColor: colors.rhfBlueSky,
+    paddingVertical: 15
+  },
+  buttonText:{
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '700'
+  },
 });

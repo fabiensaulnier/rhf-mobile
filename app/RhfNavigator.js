@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
-import tabBarIcon from './../components/icons/tabBarIcon'
-import HomeScreen from './../home/HomeScreen';
-import GamesNavigator from './../games/GamesNavigator';
-import NewsScreen from './../news/NewsScreen';
-import FavoritesScreen from './../favorites/FavoritesScreen';
-import MoreNavigator from './../more/MoreNavigator';
+import tabBarIcon from './components/icons/tabBarIcon'
+import HomeScreen from './home/HomeScreen';
+import GamesNavigator from './games/GamesNavigator';
+import NewsScreen from './news/NewsScreen';
+import FavoritesScreen from './favorites/FavoritesScreen';
+import MoreNavigator from './more/MoreNavigator';
 
 class Home extends React.Component {
   static navigationOptions = {
@@ -14,7 +14,7 @@ class Home extends React.Component {
     tabBarIcon: tabBarIcon('home'),
   };
   render() {
-    return <HomeScreen id="home" />;
+    return <HomeScreen />;
   }
 }
 
@@ -33,8 +33,9 @@ class Games extends React.Component {
       fontWeight: 'bold',
     },
   };
+  
   render() {
-    return <GamesNavigator id="games" />;
+    return <GamesNavigator />;
   }
 }
 
@@ -45,7 +46,7 @@ class News extends React.Component {
   };
 
   render() {
-    return <NewsScreen id="news" />;
+    return <NewsScreen />;
   }
 }
 
@@ -56,7 +57,7 @@ class Favorites extends React.Component {
   };
 
   render() {
-    return <FavoritesScreen id="favorites" />;
+    return <FavoritesScreen />;
   }
 }
 
@@ -67,17 +68,13 @@ class More extends React.Component {
   };
 
   render() {
-    return <MoreNavigator id="more" />;
+    return <MoreNavigator />;
   }
 }
 
 const MaterialBottomTabNavigator = createMaterialBottomTabNavigator(
   {
-    Home,
-    Games,
-    News,
-    Favorites,
-    More,
+    Home, Games, News, Favorites, More,
   },
   {
     initialRouteName: 'Home',
@@ -88,7 +85,7 @@ const MaterialBottomTabNavigator = createMaterialBottomTabNavigator(
   }
 );
 
-export default class RhfStack extends React.Component {
+export default class RhfNavigator extends React.Component {
   render() {
     return <MaterialBottomTabNavigator />;
   }

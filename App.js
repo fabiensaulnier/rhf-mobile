@@ -2,8 +2,8 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
-import AuthStack  from './app/navigation/AuthStack';
-import RhfStack  from './app/navigation/RhfStack';
+import AuthNavigator  from './app/auth/AuthNavigator';
+import RhfNavigator  from './app/RhfNavigator';
 import { firebaseApp } from './app/services/Firebase';
 
 export default class App extends React.Component {
@@ -40,7 +40,7 @@ export default class App extends React.Component {
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-          {(this.state.isAuthenticated) ? <RhfStack /> : <AuthStack />}
+          {(this.state.isAuthenticated) ? <RhfNavigator /> : <AuthNavigator />}
         </View>
       );
     }

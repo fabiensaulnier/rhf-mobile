@@ -1,19 +1,16 @@
 import React from 'react';
-import { SectionList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 export default class CompetitionsListItem extends React.PureComponent {
-  _onPress = () => {
-      this.props.onPressItem(this.props.competitionSelected);
-    };
+  onPress = () => {
+    this.props.onPressItem(this.props.item, this.props.section);
+  };
 
   render() {
     return (
-      <TouchableOpacity onPress={this._onPress}>
+      <TouchableOpacity onPress={this.onPress}>
         <View>
-          <Text style={styles.item}>
-            {this.props.item.title}
-          </Text>
+          <Text style={styles.item}>{this.props.item.title}</Text>
         </View>
       </TouchableOpacity>
     );

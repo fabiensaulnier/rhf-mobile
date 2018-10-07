@@ -5,13 +5,11 @@ import defaultNavigationConfig from './../components/HeaderStackNavigator';
 
 import CompetitionsScreen from './CompetitionsScreen';
 import CompetitionScreen from './CompetitionScreen';
-import CompetitionTabs from './old/CompetitionTabs';
 
 const Navigator = createStackNavigator(
   {
     Competitions: { screen: CompetitionsScreen},
     Competition: { screen: CompetitionScreen},
-    CompetitionOld : { screen: CompetitionTabs}, 
   },
   {
     initialRouteName: "Competitions",
@@ -26,7 +24,7 @@ export default class CompetitionsNavigator extends React.Component {
   }
   render() {
     return (
-      <Navigator />
+      <Navigator screenProps={{ rootNavigation: this.props.navigation }} />
     );
   }
 };

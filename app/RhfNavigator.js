@@ -63,7 +63,7 @@ class More extends React.Component {
 
 const MaterialBottomTabNavigator = createMaterialBottomTabNavigator(
   {
-    Home, Competitions, News, Favorites, More,
+    Home, Competitions, Favorites, More,
   },
   {
     initialRouteName: 'Home',

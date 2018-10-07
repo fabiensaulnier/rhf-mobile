@@ -14,7 +14,7 @@ class Resultats extends React.Component {
   }
 
   componentWillMount() {
-    getResultats(this.props.competitionId)
+    getResultats(this.props.ffrsId)
       .then((json) => {
         this.setState({ resultats : json });
       });

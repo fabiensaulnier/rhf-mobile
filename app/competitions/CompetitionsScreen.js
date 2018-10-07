@@ -23,12 +23,11 @@ export default class CompeititionsScreen extends Component<any, State> {
     this.state = {
       sections: [],
       loading: true,
-      competitionSelected:"",
     };
   }
 
   componentDidMount() {
-    this.unsubscribe = this.ref.onSnapshot(this.onSectionsionUpdate)
+    this.unsubscribe = this.ref.orderBy("order").onSnapshot(this.onSectionsionUpdate)
   }
 
   componentWillUnmount() {
@@ -51,17 +50,25 @@ export default class CompeititionsScreen extends Component<any, State> {
    });
   }
 
-  onPressItem = (item) => {
-    this.props.navigation.navigate('CompetitionOld', {competitionId: this.state.competitionSelected});
+  onPressItem = (item, section) => {
+    this.props.navigation.navigate('Competition', {
+      competitionId: item.competition.id,
+      title: item.title,
+      section: section,
+    });
   }
 
-  _renderItem = ({item}) => {
+  renderItem = ({item, section}) => {
     return (
-      <CompetitionsListItem item={item} onPressItem={this.onPressItem} />
+      <CompetitionsListItem
+        item={item}
+        section={section}
+        onPressItem={this.onPressItem}
+      />
     )
   }
 
-  _renderSectionHeader = ({section}) => {
+  renderSectionHeader = ({section}) => {
     return (
       <View style={styles.container}>
         <Text style={styles.sectionHeader}>{section.title}</Text>
@@ -77,9 +84,9 @@ export default class CompeititionsScreen extends Component<any, State> {
       <View style={styles.container}>
         <SectionList
           sections={this.state.sections}
-          renderItem={this._renderItem}
-          renderSectionHeader={this._renderSectionHeader}
-          keyExtractor={(item, index) => item.id}
+          renderItem={this.renderItem}
+          renderSectionHeader={this.renderSectionHeader}
+          keyExtractor={(item, index) => item.title + index}
         />
       </View>
     );

@@ -3,6 +3,7 @@ import { colors } from '../../config/styles';
 const defaultNavigationConfig = {
   headerStyle: {
     backgroundColor: colors.rhfBlue,
+    borderBottomWidth: 0,
   },
   headerBackTitle: null,
   headerTintColor: 'white',

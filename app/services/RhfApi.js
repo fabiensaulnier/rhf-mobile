@@ -1,17 +1,17 @@
 
-const BASE_URL = 'http://roller-hockey-france-elite.herokuapp.com/';
+const BASE_URL = 'http://roller-hockey-france-elite.herokuapp.com/competition/';
 
 export const getClassement = (ffrsId) => {
-  const URL = BASE_URL + 'competition/' + ffrsId + '/classement';
+  const URL = BASE_URL + ffrsId + '/classement';
   return fetch(URL).then((res) => res.json());
 }
 
-export const getResultats = (competitionId) => {
-  const URL = BASE_URL + 'elite/matchs';
+export const getResultats = (ffrsId) => {
+  const URL = BASE_URL + ffrsId + '/matchs';
   return fetch(URL).then((res) => res.json());
 }
 
-export const getStatistiques = (competitionId) => {
-  const URL = BASE_URL + 'elite/statistiques';
+export const getStatistiques = (ffrsId) => {
+  const URL = BASE_URL + ffrsId + '/statistiques';
   return fetch(URL).then((res) => res.json());
 }

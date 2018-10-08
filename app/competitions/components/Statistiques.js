@@ -14,7 +14,7 @@ class Statistiques extends React.Component {
   }
 
   componentWillMount() {
-    getStatistiques(this.props.competitionId)
+    getStatistiques(this.props.screenProps.stage.ffrsId)
       .then((json) => {
         this.setState({ statistiques : json });
       });

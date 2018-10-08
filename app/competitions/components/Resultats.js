@@ -14,7 +14,7 @@ class Resultats extends React.Component {
   }
 
   componentWillMount() {
-    getResultats(this.props.ffrsId)
+    getResultats(this.props.screenProps.stage.ffrsId)
       .then((json) => {
         this.setState({ resultats : json });
       });

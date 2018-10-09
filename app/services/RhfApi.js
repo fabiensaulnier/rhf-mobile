@@ -1,5 +1,5 @@
 
-const BASE_URL = 'http://roller-hockey-france-elite.herokuapp.com/competition/';
+const BASE_URL = 'http://rhf-manager.herokuapp.com/competition/';
 
 export const getClassement = (ffrsId) => {
   const URL = BASE_URL + ffrsId + '/classement';

@@ -28,18 +28,11 @@ export const RouteConfigs = {
       title: "Statistiques",
     }
   },
-  // Palmares: {
-  //   screen: Palmares,
-  //   navigationOptions: {
-  //     title: "Palmarès",
-  //   }
-  // }
 };
 
 const TabNavigatorConfig = {
   title: 'Compétitions',
   tabBarOptions: {
-    //scrollEnabled: true,
     showIcon: false,
     showLabel: true,
     activeTintColor: 'white',
@@ -50,25 +43,7 @@ const TabNavigatorConfig = {
     indicatorStyle: {
         backgroundColor: 'white',
     },
-
   },
 };
 
-const Navigator = createMaterialTopTabNavigator(RouteConfigs, TabNavigatorConfig);
-
-// wrapper
-export default class CompetitionTabs extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <Navigator
-        screenProps={{
-          competition: this.props.competition,
-          stage: this.props.stage,
-        }}
-      />
-    );
-  }
-};
+export default CompetitionTabsNavigator = createMaterialTopTabNavigator(RouteConfigs, TabNavigatorConfig);

@@ -3,16 +3,16 @@ import { createStackNavigator } from 'react-navigation';
 
 import defaultNavigationConfig from './../components/HeaderStackNavigator';
 
-import MoreScreen from './MoreScreen';
+import HomeScreen from './HomeScreen';
 
-const MoreNavigator = createStackNavigator(
+const HomeNavigator = createStackNavigator(
   {
-    MoreScreen: { screen: MoreScreen},
+    HomeScreen: { screen: HomeScreen},
   },
   {
-    initialRouteName: "MoreScreen",
+    initialRouteName: "HomeScreen",
     navigationOptions: defaultNavigationConfig,
   },
 );
 
-export default MoreNavigator;
+export default HomeNavigator;

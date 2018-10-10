@@ -27,7 +27,8 @@ export default class CompeititionsScreen extends Component<any, State> {
   }
 
   componentDidMount() {
-    this.unsubscribe = this.ref.orderBy("order").onSnapshot(this.onSectionsionUpdate)
+    const ordered = this.ref.orderBy("order");
+    this.unsubscribe = ordered.onSnapshot(this.onSectionsionUpdate);
   }
 
   componentWillUnmount() {

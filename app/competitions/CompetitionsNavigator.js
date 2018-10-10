@@ -6,7 +6,7 @@ import defaultNavigationConfig from './../components/HeaderStackNavigator';
 import CompetitionsScreen from './CompetitionsScreen';
 import CompetitionScreen from './CompetitionScreen';
 
-const Navigator = createStackNavigator(
+const CompetitionNavigator = createStackNavigator(
   {
     Competitions: { screen: CompetitionsScreen},
     Competition: { screen: CompetitionScreen},
@@ -17,14 +17,4 @@ const Navigator = createStackNavigator(
   },
 );
 
-// wrapper
-export default class CompetitionsNavigator extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <Navigator screenProps={{ rootNavigation: this.props.navigation }} />
-    );
-  }
-};
+export default CompetitionNavigator;

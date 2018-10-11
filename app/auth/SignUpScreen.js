@@ -30,7 +30,7 @@ export default class SignUpScreen extends React.Component {
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => { }, (error) => { Alert.alert(error.message); });
+      .then(() => { Alert.alert("Compte créé") }, (error) => { Alert.alert(error.message); });
   }
 
   render() {
@@ -65,8 +65,8 @@ export default class SignUpScreen extends React.Component {
           secureTextEntry
           underlineColorAndroid="transparent"
         />
-        <TouchableOpacity style={styles.buttonContainer} onPress={this.onResetPasswordPress}>
-          <Text style={styles.buttonText}>RÉINITIALISER</Text>
+        <TouchableOpacity style={styles.buttonContainer} onPress={this.onSignupPress}>
+          <Text style={styles.buttonText}>CRÉER COMPTE</Text>
         </TouchableOpacity>
       </View>
     );

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Picker } from 'react-native';
 
 import Loading from './../components/Loading';
-import CompetitionTabs from './components/CompetitionTabs';
 import CompetitionHeader from './components/CompetitionHeader';
+import CompetitionTabsNavigator from './components/CompetitionTabsNavigator';
 import CompetitionView from './components/CompetitionView';
 import { firebaseApp } from './../services/Firebase';
 
 export default class CompetitionScreen extends Component<any, State> {
+  static router = CompetitionTabsNavigator.router;
   static navigationOptions = ({ navigation, navigationOptions }) => {
     const { params } = navigation.state;
     return {
@@ -21,7 +22,7 @@ export default class CompetitionScreen extends Component<any, State> {
     this.ref = firebaseApp.firestore().collection('competitions').doc(competitionId);
     this.state = {
       competition: undefined,
-      stage: undefined,
+      selectedStage: undefined,
       loading: true,
     };
   }
@@ -32,12 +33,12 @@ export default class CompetitionScreen extends Component<any, State> {
       const competition = doc.data();
       this.setState({
         competition: competition,
-        stage: competition.stages[0],
+        selectedStage: competition.stages[0],
         loading: false,
      });
     })
     .catch(error => {
-      this.setState({loading: false});
+      // this.setState({loading: false}); Sans fin ...
     });
   }
 
@@ -55,15 +56,17 @@ export default class CompetitionScreen extends Component<any, State> {
         <CompetitionHeader
           name={this.state.competition.name}
           section={this.props.navigation.state.params.section.title}
-          stage={this.state.stage.name}
+          stage={this.state.selectedStage.name}
           logo={this.state.competition.logo}
         />
-        <CompetitionTabs
-          competition={this.state.competition}
-          stage={this.state.stage}
+        <CompetitionTabsNavigator
+          navigation={this.props.navigation}
+          screenProps={{
+            competition: this.state.competition,
+            stage: this.state.selectedStage,
+          }}
         />
       </View>
-
     );
   }
 }

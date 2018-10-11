@@ -3,16 +3,16 @@ import { createStackNavigator } from 'react-navigation';
 
 import defaultNavigationConfig from './../components/HeaderStackNavigator';
 
-import MoreScreen from './MoreScreen';
+import FavoritesScreen from './FavoritesScreen';
 
-const MoreNavigator = createStackNavigator(
+const FavoritesNavigator = createStackNavigator(
   {
-    MoreScreen: { screen: MoreScreen},
+    Favorites: { screen: FavoritesScreen},
   },
   {
-    initialRouteName: "MoreScreen",
+    initialRouteName: "Favorites",
     navigationOptions: defaultNavigationConfig,
   },
 );
 
-export default MoreNavigator;
+export default FavoritesNavigator;

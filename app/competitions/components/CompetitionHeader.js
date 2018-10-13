@@ -14,26 +14,28 @@ import { firebaseApp } from './../../services/Firebase';
 export default class CompetitionHeader extends React.PureComponent {
 
   logoImage = () => {
-    return (
-      <Image
-        source={{uri:this.props.logo}}
-        style={styles.logo}
-      />
-    );
-  }
-
-  defaultImage = () => {
-    return (
-      <Ionicons name="md-trophy" size={140} color="white" />
-    );
+    if (this.props.logo) {
+      return (
+        <Image
+          source={{
+            uri: this.props.logo,
+            cache: 'only-if-cached',
+          }}
+          style={styles.logo}
+        />
+      );
+    } else {
+      return (
+        <Ionicons name="md-trophy" size={140} color="white" />
+      );
+    }
   }
 
   render() {
-    let logo = this.props.logo ? this.logoImage() : this.defaultImage();
     return (
       <View style={styles.container}>
-        {logo}
-        <Text style={styles.title}>{this.props.name}</Text>
+        {this.logoImage()}
+        <Text style={styles.title}>{this.props.competition}</Text>
         <Text style={styles.description}>{this.props.section} • {this.props.stage}</Text>
       </View>
     );

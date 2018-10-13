@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, Picker } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import Loading from './../components/Loading';
 import CompetitionHeader from './components/CompetitionHeader';
 import CompetitionTabsNavigator from './components/CompetitionTabsNavigator';
-import CompetitionView from './components/CompetitionView';
-import { firebaseApp } from './../services/Firebase';
+import getCompetition from './../services/RhfDb';
+import getStage from './../services/RhfApi';
 
 export default class CompetitionScreen extends Component<any, State> {
   static router = CompetitionTabsNavigator.router;
@@ -18,28 +18,31 @@ export default class CompetitionScreen extends Component<any, State> {
 
   constructor(props) {
     super(props);
-    var competitionId = this.props.navigation.state.params.competitionId;
-    this.ref = firebaseApp.firestore().collection('competitions').doc(competitionId);
+    this.competitionId = this.props.navigation.state.params.competitionId;
+    this.section = this.props.navigation.state.params.section;
     this.state = {
       competition: undefined,
-      selectedStage: undefined,
+      stageApi: undefined,
+      stageDb: undefined,
       loading: true,
     };
   }
 
-  componentDidMount() {
-    this.ref.get()
-    .then(doc => {
-      const competition = doc.data();
+  async componentDidMount() {
+    try {
+      const competition = await getCompetition(this.competitionId);
+      this.setState({ stageDb: competition.stages[0], });
+      const stageApi = await getStage(this.state.stageDb.ffrsId);
       this.setState({
         competition: competition,
-        selectedStage: competition.stages[0],
+        stageApi: stageApi,
         loading: false,
-     });
-    })
-    .catch(error => {
-      // this.setState({loading: false}); Sans fin ...
-    });
+      });
+    } catch (error) {
+      console.log(error);
+      // TODO nav back ? alert ?
+    }
+    this.setState({ loading: false, });
   }
 
   render() {
@@ -54,16 +57,16 @@ export default class CompetitionScreen extends Component<any, State> {
     return (
       <View style={styles.container}>
         <CompetitionHeader
-          name={this.state.competition.name}
-          section={this.props.navigation.state.params.section.title}
-          stage={this.state.selectedStage.name}
+          competition={this.state.competition.name}
+          section={this.section.title}
+          stage={this.state.stageDb.name}
           logo={this.state.competition.logo}
         />
         <CompetitionTabsNavigator
           navigation={this.props.navigation}
           screenProps={{
             competition: this.state.competition,
-            stage: this.state.selectedStage,
+            stage: this.state.stageApi,
           }}
         />
       </View>
@@ -75,5 +78,10 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    flexDirection: 'column',
+  },
+  logo: {
+    height: 140,
+    width: 185,
+    margin: 10,
   },
 })

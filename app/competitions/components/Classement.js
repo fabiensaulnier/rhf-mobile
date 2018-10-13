@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
   Text,
   StyleSheet,
-  View
+  View,
+  Image,
 } from 'react-native';
 import Table from 'react-native-simple-table';
-
+import { Ionicons } from '@expo/vector-icons';
 import Loading from './../../components/Loading';
 import { getClassement } from '../../services/RhfApi'
 
@@ -31,32 +32,13 @@ const columns = [
 class Classement extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      classement: undefined,
-      loading: true,
-    }
+    this.stage = this.props.screenProps.stage;
   }
 
-  componentWillMount() {
-    getClassement(this.props.screenProps.stage.ffrsId)
-      .then((json) => {
-        this.setState({
-          classement : json,
-          loading: false,
-        });
-      })
-      .catch(error => {
-        this.setState({loading: false});
-      });
-    }
-
   render() {
-    if (this.state.loading) {
-      return <Loading />;
-    }
     return (
       <View style={styles.container}>
-        <Table columnWidth={30} height={350} columns={columns} dataSource={this.state.classement} />
+        <Table columnWidth={30} height={350} columns={columns} dataSource={this.stage.classement} />
         {/* <Text>Légende (en mode dépliable) # : position, Pts. : points, J : Matchs joués, ...</Text> */}
       </View>
     );

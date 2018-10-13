@@ -10,18 +10,11 @@ import { getResultats } from '../../services/RhfApi'
 class Resultats extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { resultats: undefined }
-  }
-
-  componentWillMount() {
-    getResultats(this.props.screenProps.stage.ffrsId)
-      .then((json) => {
-        this.setState({ resultats : json });
-      });
+    this.stage = this.props.screenProps.stage;
   }
 
   render() {
-    return <Text>{JSON.stringify(this.state.resultats)}</Text>;
+    return <Text>{JSON.stringify(this.stage.resultats)}</Text>;
   }
 }
 

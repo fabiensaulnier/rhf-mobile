@@ -5,7 +5,6 @@ import { colors } from './../../config/styles';
 import Classement from './Classement';
 import Resultats from './Resultats';
 import Statistiques from './Statistiques';
-import Palmares from './Palmares';
 
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 

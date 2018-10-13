@@ -1,17 +1,33 @@
-
 const BASE_URL = 'http://rhf-manager.herokuapp.com/competition/';
 
-export const getClassement = (ffrsId) => {
-  const URL = BASE_URL + ffrsId + '/classement';
-  return fetch(URL).then((res) => res.json());
+const valueType = {
+  CLASSEMENT: 'classement',
+  MATCHS: 'matchs',
+  STATISTIQUES: 'statistiques',
+};
+
+const get = async (stageId, valueType) => {
+  try {
+    let response = await fetch(
+       BASE_URL + stageId + '/' + valueType
+    );
+    let classement = await response.json();
+    return classement;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-export const getResultats = (ffrsId) => {
-  const URL = BASE_URL + ffrsId + '/matchs';
-  return fetch(URL).then((res) => res.json());
-}
+const getStage = async (stageId) => {
+  const classement = get(stageId, valueType.CLASSEMENT);
+  const matchs = get(stageId, valueType.MATCHS);
+  const statistiques = get(stageId, valueType.STATISTIQUES);
+  const stage = await Promise.all([classement, matchs, statistiques]);
+  return {
+    classement: stage[0],
+    resultats: stage[1],
+    statistiques: stage[2],
+  }
+};
 
-export const getStatistiques = (ffrsId) => {
-  const URL = BASE_URL + ffrsId + '/statistiques';
-  return fetch(URL).then((res) => res.json());
-}
+export default getStage;

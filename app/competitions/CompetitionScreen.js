@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 import Loading from './../components/Loading';
+import NoData from './../components/NoData';
 import CompetitionHeader from './components/CompetitionHeader';
 import CompetitionTabsNavigator from './components/CompetitionTabsNavigator';
 import getCompetition from './../services/RhfDb';
@@ -50,9 +51,7 @@ export default class CompetitionScreen extends Component<any, State> {
       return <Loading />;
     }
     if (!this.state.competition) {
-      return (
-          <Text>Pas de données</Text>
-      );
+      return <NoData />;
     }
     return (
       <View style={styles.container}>

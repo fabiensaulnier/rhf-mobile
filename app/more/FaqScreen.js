@@ -1,8 +1,15 @@
-import React,{AppRegistry,StyleSheet,Text,ScrollView} from 'react-native';
+import React from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  ScrollView
+} from 'react-native';
 import Panel from './components/Panel';  // Step 1
 
-var Panels = React.createClass({
-  render: function() {
+export default class MoreScreen extends React.Component {
+
+  render() {
     return (  //Step 2
       <ScrollView style={styles.container}>
         <Panel title="A Panel with short content text">
@@ -17,15 +24,13 @@ var Panels = React.createClass({
       </ScrollView>
     );
   }
-});
+};
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex            : 1,
-    backgroundColor : '#f4f7f9',
-    paddingTop      : 30
+    flex: 1,
+    backgroundColor: '#f4f7f9',
+    paddingTop: 30,
   },
-  
-});
 
-AppRegistry.registerComponent('Panels', () => Panels);
+});

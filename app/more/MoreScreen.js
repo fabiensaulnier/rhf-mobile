@@ -13,10 +13,16 @@ export default class MoreScreen extends React.Component {
           .then(() => { }, (error) => { Alert.alert(error.message); });
   }
 
+  onFaqPress = () => {
+    this.props.navigation.navigate('FaqScreen');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, paddingTop:60}}>
+          <Button title="FAQ" onPress={this.onFaqPress} />
           <Button title="Se déconnecter" onPress={this.onSignOutPress} />
+
       </View>
     );
   }

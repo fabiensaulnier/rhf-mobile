@@ -1,31 +1,43 @@
 
 import React from 'react';
-import {
-  Component,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Animated} from 'react-native'; //Step 1
+import {Text, View, StyleSheet, LayoutAnimation, Platform, Image, TouchableOpacity, Animated} from 'react-native'; //Step 1
 
+// https://tutorialscapital.com/react-native-dynamically-expand-collapse-slidedown-slideup-view-using-layoutanimation-tutorial/
 export default class MoreScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.icons = {
-      'up': require('./arrow_up.png'),
-      'down'  : require('./arrow_down.png')
+      'up': require('./up.png'),
+      'down'  : require('./down.png')
     };
 
     this.state = {
       title: props.title,
-      expanded: true
+      expanded: false,
+      onLayoutHeight: 0,
+      modifiedHeight: 0,
+      animation   : new Animated.Value()
     };
   }
 
-  toggle() {
+  changeLayout = () =>
+  {
+    LayoutAnimation.configureNext( LayoutAnimation.Presets.easeInEaseOut );
 
+    if( this.state.expanded === false )
+        this.setState({ modifiedHeight: this.state.onLayoutHeight, expanded: true });
+    else
+        this.setState({ modifiedHeight: 0, expanded: false });
+  }
+
+  getViewHeight( height )
+  {
+      this.setState({ onLayoutHeight: 50 });
+  }
+
+  toggle() {
+    
   }
 
   render() {
@@ -36,52 +48,60 @@ export default class MoreScreen extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>{this.state.title}</Text>
-          <TouchableHighlight
-            style={styles.button}
-            onPress={this.toggle()}
-            underlayColor="#f1f1f1">
-            <Image
+      <View style = { styles.container }>
+      <View style = { styles.btnTextHolder }>
+          <TouchableOpacity  onPress = { this.changeLayout } style = { styles.Btn }>
+              <Text style = { styles.btnText }>{this.state.title}</Text>
+              <Image
               style={styles.buttonImage}
               source={icon}
             ></Image>
-          </TouchableHighlight>
-        </View>
-
-        <View style={styles.body}>
-          {this.props.children}
-        </View>
+          </TouchableOpacity>
+          <View style = {{ height: this.state.modifiedHeight, overflow: 'hidden' }}>
+              <Text style = { styles.text } onLayout = {( event ) => this.getViewHeight( event.nativeEvent.layout.height )}>
+              {this.props.children}
+              </Text>
+          </View>
       </View>
+  </View>
     )
   }
 }
+  const styles = StyleSheet.create(
+  {
+      container:
+      {
+          flex: 1,
+          paddingHorizontal: 10,
+          justifyContent: 'center',
+          paddingTop: (Platform.OS === 'ios') ? 20 : 0
+      },
+   
+      text:
+      {
+          fontSize: 12,
+          color: 'black',
+          padding: 10
+      },
+   
+      btnText:
+      {
+          color: 'white',
+          fontSize: 13
+      },
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    margin:10,
-    overflow:'hidden',
-  },
-  titleContainer : {
-    flexDirection: 'row',
-  },
-  title: {
-    flex: 1,
-    padding: 10,
-    color: '#2a2f43',
-    fontWeight: 'bold',
-  },
-  button: {
-
-  },
-  buttonImage: {
-    width: 30,
-    height: 25,
-  },
-  body: {
-    padding: 10,
-    paddingTop: 0,
-  }
-});
+      buttonImage: {
+        width: 40,
+        height: 35,
+      },
+   
+      titleContainer : {
+        flexDirection: 'row',
+      },
+   
+      Btn:
+      {
+          padding: 10,
+          backgroundColor: 'rgba(0,0,0,0.5)'
+      }
+  });

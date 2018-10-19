@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, Button ,StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert ,StyleSheet } from 'react-native';
 
+import Button from './../../../components/Button';
 import { colors } from '../../../config/styles.js';
 import { firebaseApp } from './../../../services/Firebase';
 import styles from './styles.js';
@@ -45,9 +46,7 @@ export default class LoginForm extends Component {
           secureTextEntry
           underlineColorAndroid="transparent"
         />
-        <TouchableOpacity style={styles.buttonContainer} onPress={this.onLoginPress}>
-          <Text style={styles.buttonText}>SE CONNECTER</Text>
-        </TouchableOpacity>
+        <Button title="Se connecter" onPress={this.onLoginPress} />
       </View>
     );
   }

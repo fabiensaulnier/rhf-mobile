@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
+import Button from './../components/Button';
 import { firebaseApp } from './../services/Firebase';
 import { colors } from './../config/styles';
 
@@ -44,9 +45,7 @@ export default class ForgotPasswordScreen extends React.Component {
           placeholderTextColor='white'
           underlineColorAndroid="transparent"
         />
-        <TouchableOpacity style={styles.buttonContainer} onPress={this.onResetPasswordPress}>
-          <Text style={styles.buttonText}>RÉINITIALISER</Text>
-        </TouchableOpacity>
+        <Button title="Réinitialiser" onPress={this.onResetPasswordPress} />
       </View>
     );
   }

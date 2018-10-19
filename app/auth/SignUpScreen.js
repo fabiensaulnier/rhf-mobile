@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
+import Button from './../components/Button';
 import { firebaseApp } from './../services/Firebase';
 import { colors } from './../config/styles';
 
@@ -65,9 +66,7 @@ export default class SignUpScreen extends React.Component {
           secureTextEntry
           underlineColorAndroid="transparent"
         />
-        <TouchableOpacity style={styles.buttonContainer} onPress={this.onSignupPress}>
-          <Text style={styles.buttonText}>CRÉER COMPTE</Text>
-        </TouchableOpacity>
+        <Button title="Créer compte" onPress={this.onSignupPress} />
       </View>
     );
   }

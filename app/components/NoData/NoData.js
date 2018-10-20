@@ -1,20 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import {StyleSheet, Text, View, Image} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
 
 import styles from './styles';
 
-const NoData = (props) => {
-  return (
-      <View style={styles.container}>
-          <Ionicons name="md-close-circle" size={140} color="white" />
-          <Text> Pas de données </Text>
-      </View>
-  );
-};
+export default class NoData extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let imageSource = this.props.imageSource? this.props.imageSource: '/test.png';
+        return (
+            <View style={styles.container}>
+                <Image source={{uri: imageSource }} />
+                <Text>{this.props.message ? this.props.message : 'Pas de Données' }</Text>
+            </View>
+        )
+    }
+
+}
 
 NoData.defaultProps = {
-  size: 'large',
+    size: 'large',
 };
 
-export default NoData;

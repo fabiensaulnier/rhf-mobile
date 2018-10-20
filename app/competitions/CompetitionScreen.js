@@ -51,7 +51,12 @@ export default class CompetitionScreen extends Component<any, State> {
       return <Loading />;
     }
     if (!this.state.competition) {
-      return <NoData />;
+      return (
+          <NoData
+              message={"Patience, la compétition n'a pas encore commencé !"}
+              imageSourceUri={'/test.png'}
+          />
+      );
     }
     return (
       <View style={styles.container}>

@@ -19,7 +19,7 @@ export default class CompetitionHeader extends React.PureComponent {
         <Image
           source={{
             uri: this.props.logo,
-            cache: 'only-if-cached',
+            cache: 'default',
           }}
           style={styles.logo}
         />

@@ -5,16 +5,31 @@ import defaultNavigationConfig from './../components/HeaderStackNavigator';
 
 import MoreScreen from './MoreScreen';
 import FaqScreen from './FaqScreen';
-
+import SettingsScreen from './SettingsScreen';
 
 const MoreNavigator = createStackNavigator(
   {
-    MoreScreen: { screen: MoreScreen},
-    FaqScreen: { screen: FaqScreen},
-   
+    More: {
+      screen: MoreScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    Faq: {
+      screen: FaqScreen,
+      navigationOptions: {
+        title: "Foire aux questions",
+      },
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: {
+        title: "Paramètres",
+      },
+    },
   },
   {
-    initialRouteName: "MoreScreen",
+    initialRouteName: "More",
     navigationOptions: defaultNavigationConfig,
   },
 );

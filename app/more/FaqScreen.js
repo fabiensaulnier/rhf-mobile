@@ -5,12 +5,12 @@ import {
   Text,
   ScrollView
 } from 'react-native';
-import Panel from './components/Panel';  // Step 1
+import Panel from './components/Panel';
 
 export default class MoreScreen extends React.Component {
 
   render() {
-    return (  //Step 2
+    return (
       <ScrollView style={styles.container}>
         <Panel title="Une question ?">
           <Text>Une réponse.</Text>

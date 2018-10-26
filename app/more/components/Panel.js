@@ -1,6 +1,7 @@
 
 import React from 'react';
 import {Text, View, StyleSheet, LayoutAnimation, Platform, Image, TouchableOpacity, Animated} from 'react-native'; //Step 1
+import { auth } from 'firebase';
 
 // https://tutorialscapital.com/react-native-dynamically-expand-collapse-slidedown-slideup-view-using-layoutanimation-tutorial/
 export default class MoreScreen extends React.Component {
@@ -33,7 +34,7 @@ export default class MoreScreen extends React.Component {
 
   getViewHeight( height )
   {
-      this.setState({ onLayoutHeight: 50 });
+      this.setState({ onLayoutHeight: 100 });
   }
 
   toggle() {
@@ -51,11 +52,11 @@ export default class MoreScreen extends React.Component {
       <View style = { styles.container }>
       <View style = { styles.btnTextHolder }>
           <TouchableOpacity  onPress = { this.changeLayout } style = { styles.Btn }>
-              <Text style = { styles.btnText }>{this.state.title}</Text>
-              <Image
-              style={styles.buttonImage}
+          <Image 
+            style={styles.buttonImage}
               source={icon}
             ></Image>
+              <Text style = { styles.btnText }>{this.state.title}</Text>
           </TouchableOpacity>
           <View style = {{ height: this.state.modifiedHeight, overflow: 'hidden' }}>
               <Text style = { styles.text } onLayout = {( event ) => this.getViewHeight( event.nativeEvent.layout.height )}>
@@ -81,18 +82,22 @@ export default class MoreScreen extends React.Component {
       {
           fontSize: 12,
           color: 'black',
-          padding: 10
+          padding: 10,
+          flex: 3,
       },
    
       btnText:
       {
-          color: 'white',
-          fontSize: 13
+          color: '#002c48',
+          fontSize: 15,
+          fontWeight: 'bold'
       },
 
       buttonImage: {
-        width: 40,
-        height: 35,
+        width: 20,
+        height: 10,
+        alignSelf: 'flex-end',
+        marginTop: 5
       },
    
       titleContainer : {
@@ -102,6 +107,6 @@ export default class MoreScreen extends React.Component {
       Btn:
       {
           padding: 10,
-          backgroundColor: 'rgba(0,0,0,0.5)'
+          //backgroundColor: 'rgba(0,0,0,0.5)'
       }
   });

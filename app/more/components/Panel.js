@@ -34,7 +34,7 @@ export default class MoreScreen extends React.Component {
 
   getViewHeight( height )
   {
-      this.setState({ onLayoutHeight: 100 });
+      this.setState({ onLayoutHeight: 120 });
   }
 
   toggle() {
@@ -52,10 +52,8 @@ export default class MoreScreen extends React.Component {
       <View style = { styles.container }>
       <View style = { styles.btnTextHolder }>
           <TouchableOpacity  onPress = { this.changeLayout } style = { styles.Btn }>
-          <Image 
-            style={styles.buttonImage}
-              source={icon}
-            ></Image>
+          <Image  style={styles.buttonImage} source={icon}></Image>
+          
               <Text style = { styles.btnText }>{this.state.title}</Text>
           </TouchableOpacity>
           <View style = {{ height: this.state.modifiedHeight, overflow: 'hidden' }}>
@@ -106,7 +104,7 @@ export default class MoreScreen extends React.Component {
    
       Btn:
       {
-          padding: 10,
+          padding: 5,
           //backgroundColor: 'rgba(0,0,0,0.5)'
       }
   });

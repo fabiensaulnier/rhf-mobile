@@ -52,9 +52,8 @@ export default class MoreScreen extends React.Component {
       <View style = { styles.container }>
       <View style = { styles.btnTextHolder }>
           <TouchableOpacity  onPress = { this.changeLayout } style = { styles.Btn }>
-          <Image  style={styles.buttonImage} source={icon}></Image>
-          
               <Text style = { styles.btnText }>{this.state.title}</Text>
+              <Image  style={styles.buttonImage} source={icon}></Image>
           </TouchableOpacity>
           <View style = {{ height: this.state.modifiedHeight, overflow: 'hidden' }}>
               <Text style = { styles.text } onLayout = {( event ) => this.getViewHeight( event.nativeEvent.layout.height )}>
@@ -92,10 +91,10 @@ export default class MoreScreen extends React.Component {
       },
 
       buttonImage: {
-        width: 20,
-        height: 10,
+        width: 18,
+        height: 8,
         alignSelf: 'flex-end',
-        marginTop: 5
+        marginTop: -5
       },
    
       titleContainer : {
